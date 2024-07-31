@@ -259,6 +259,7 @@ div > div {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
+  overflow-y: auto; /* Enables scrolling */
   border: 1px solid #cccccc;
   padding: 20px;
   width: 90%; /* Make modal responsive */
