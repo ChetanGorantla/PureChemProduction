@@ -21,12 +21,12 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-'''
+
 @app.route('/')
 def home():
     return "Hello, World!"
-    '''
-
+    
+'''
 @app.route('/api', methods=['GET'])
 def index():
     return jsonify({"message": "Hello from Flask on Vercel!"})
@@ -34,6 +34,7 @@ def index():
 # Vercel requires a callable named 'app' for the entry point
 def handler(request, *args, **kwargs):
     return app(request, *args, **kwargs)
+    '''
 
 #Titrations pH
 
