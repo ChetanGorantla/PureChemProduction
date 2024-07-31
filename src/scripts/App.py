@@ -1,6 +1,6 @@
 #imports
 
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 import re
 import numpy as np
 from flask_cors import CORS
@@ -34,10 +34,19 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-
+'''
 @app.route('/')
 def home():
     return "Hello, World!"
+    '''
+
+@app.route('/api', methods=['GET'])
+def index():
+    return jsonify({"message": "Hello from Flask on Vercel!"})
+
+# Vercel requires a callable named 'app' for the entry point
+def handler(request, *args, **kwargs):
+    return app(request, *args, **kwargs)
 
 #Titrations pH
 
