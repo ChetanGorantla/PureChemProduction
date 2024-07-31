@@ -25,7 +25,7 @@ const Predictions = () => {
     try {
       let response;
       if (type === 'melting') {
-        response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/sort-melting', {
+        response = await axios.post('https://pure-chem.vercel.app/api/sort-melting', {
           molecules: meltingString,
         });
         setResponseDataMelting(response.data.result);
