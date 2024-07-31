@@ -1837,7 +1837,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Equilibrium_solubility_1.png"
+      solutionImage: "/solutions/Equilibrium_Solubility_1.png"
     },
     {
       questionHeader: "The compound BaSO3 dissolves in neutral water with a solubility of 194 mg/L. Find the Ksp of BaSO3 at the same temperature.",
@@ -1849,7 +1849,7 @@ const Questions = () => {
       correctMCQ: "",
       openAnswer: "",
       hasSolution: true,
-      hasSolutionImage: false,
+      hasSolutionImage: true,
       solutionText: "",
       solutionImage: "/solutions/Equilibrium_solubility_2.png"
     },
