@@ -48,7 +48,7 @@ const Titrations = () => {
       let response;
       if (selectedForm === 'ph') {
         if (selectedOption === 'Titrating weak acid with strong base' || selectedOption === 'titrating weak acid with strong base') {
-          response = await axios.post('https://pure-chem.vercel.app/api/calculate-ph-sbtwasig', {
+          response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-sbtwasig', {
             Ka: formDataPH.Ka,
             Ma: formDataPH.Ma,
             Mb: formDataPH.Mb,
@@ -57,7 +57,7 @@ const Titrations = () => {
             sig: sigFigs,
           });
         } else if (selectedOption === 'titrating strong acid with strong base' || selectedOption === 'Titrating strong acid with strong base') {
-          response = await axios.post('https://pure-chem.vercel.app/api/calculate-ph-sbtsasig', {
+          response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-sbtsasig', {
         
             Mb: formDataPH.Mb,
             Ma: formDataPH.Ma,
@@ -66,7 +66,7 @@ const Titrations = () => {
             sig: sigFigs,
           });
         } else if (selectedOption === 'titrating weak base with strong acid' || selectedOption === 'Titrating weak base with strong acid') {
-          response = await axios.post('https://pure-chem.vercel.app/api/calculate-ph-satwbsig', {
+          response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-satwbsig', {
             Kb: formDataPH.Kb,
             Mb: formDataPH.Mb,
             Ma: formDataPH.Ma,
@@ -75,7 +75,7 @@ const Titrations = () => {
             sig: sigFigs,
           });
         } else if (selectedOption === 'titrating strong base with strong acid' || selectedOption === 'Titrating strong base with strong acid') {
-          response = await axios.post('https://pure-chem.vercel.app/api/calculate-ph-satsbsig', {
+          response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-satsbsig', {
             Ma: formDataPH.Ma,
             Mb: formDataPH.Mb,
             
@@ -98,7 +98,7 @@ const Titrations = () => {
       let response;
       if (selectedForm === 'molarity') {
         
-          response = await axios.post('https://pure-chem.vercel.app/api/calculate-molarity', {
+          response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-molarity', {
             given: formDataMolarity.given,
             initial: formDataMolarity.initial,
             final: formDataMolarity.final,
