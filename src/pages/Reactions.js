@@ -27,7 +27,7 @@ const Reactions = () => {
 
   const balanceEquation = async (equation) => {
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/balance-equation', { reaction: equation });
+      const response = await axios.post('https://pure-chem.vercel.app/api/balance-equation', { reaction: equation });
       const formattedBalancedEquation = formatEquation(response.data.result);
       setBalancedEq(formattedBalancedEquation);
       setError('');
@@ -45,7 +45,7 @@ const Reactions = () => {
 
   const splitReaction = async (equation) => {
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/split-reaction', { reaction: equation });
+      const response = await axios.post('https://pure-chem.vercel.app/api/split-reaction', { reaction: equation });
       setReactantList(cleanUpStates(response.data.reactants));
       setProductList(cleanUpStates(response.data.products));
 
@@ -66,7 +66,7 @@ const Reactions = () => {
     }
 
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/delta-calculations', { reaction: equation });
+      const response = await axios.post('https://pure-chem.vercel.app/api/delta-calculations', { reaction: equation });
       const { delta_g0, delta_s0, delta_h0, K } = response.data;
       setDeltaG(delta_g0);
       setDeltaS(delta_s0);
@@ -145,7 +145,7 @@ const Reactions = () => {
 
   const handleIceCalculation = async () => {
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/ice-calculator', {
+      const response = await axios.post('https://pure-chem.vercel.app/api/ice-calculator', {
         reaction: equation,
         RM: reactantValues,
         PM: productValues,
@@ -162,7 +162,7 @@ const Reactions = () => {
 
   const handleBcaCalculation = async () => {
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/bca-calculator', {
+      const response = await axios.post('https://pure-chem.vercel.app/api/bca-calculator', {
         reaction: equation,
         RM: reactantValues,
         PM: productValues,
@@ -200,7 +200,7 @@ const Reactions = () => {
     setRedoxType(prevType => (prevType === type ? '' : type));
     try {
       const endpoint = type === 'Acid' ? 'acid-redox-equations' : 'base-redox-equations';
-      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/${endpoint}`, { reaction: equation });
+      const response = await axios.post(`https://pure-chem.vercel.app/api/${endpoint}`, { reaction: equation });
       setRedoxResults(response.data);
       setError('');
     } catch (error) {
