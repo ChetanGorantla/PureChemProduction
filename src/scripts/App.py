@@ -34,6 +34,11 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+
+@app.route('/')
+def home():
+    return "Hello, World!"
+
 #Titrations pH
 
 def parse_to_float(value):
