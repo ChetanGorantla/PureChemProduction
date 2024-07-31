@@ -59,14 +59,14 @@ const Reactions = () => {
     }
   };
 
-  const getDeltaCalculations = async (equation) => {
-    if (!equation.includes('(s)') && !equation.includes('(l)') && !equation.includes('(g)') && !equation.includes('(aq)')) {
+  const getDeltaCalculations = async (balancedEq) => {
+    if (!balancedEq.includes('(s)') && !balancedEq.includes('(l)') && !balancedEq.includes('(g)') && !balancedEq.includes('(aq)')) {
       setError('No states given, cannot calculate dG, dH, dS');
       return;
     }
 
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/delta-calculations', { reaction: equation });
+      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/delta-calculations', { reaction: balancedEq });
       const { delta_g0, delta_s0, delta_h0, K } = response.data;
       setDeltaG(delta_g0);
       setDeltaS(delta_s0);
@@ -146,7 +146,7 @@ const Reactions = () => {
   const handleIceCalculation = async () => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/ice-calculator', {
-        reaction: equation,
+        reaction: balancedEq,
         RM: reactantValues,
         PM: productValues,
         volume: volume,
@@ -163,7 +163,7 @@ const Reactions = () => {
   const handleBcaCalculation = async () => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/bca-calculator', {
-        reaction: equation,
+        reaction: balancedEq,
         RM: reactantValues,
         PM: productValues,
         volume: volume,
