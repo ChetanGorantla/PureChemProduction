@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import EquationInput from '../components/EquationInput';
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 const Home = () => {
@@ -21,6 +21,7 @@ const Home = () => {
           Get started
         </button>
       </div>
+      <Analytics/>
       
     </div>
   );

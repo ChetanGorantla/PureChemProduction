@@ -4,37 +4,42 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #e0efe6; /* Light green background */
+  font-size: 1rem; /* Use rem units to scale based on user settings */
 }
 
 header {
   background-color: #4e8a62; /* Medium dark green */
-  padding: 2em;
+  padding: 2rem; /* Adjust padding with rem units */
   text-align: center;
 }
 
 header h1 {
   margin: 0;
   color: #ffffff; /* White text */
+  font-size: 2.5rem; /* Scalable font size */
 }
 
 form {
   display: flex;
   justify-content: center;
-  margin: 2em 0;
+  margin: 2rem 0;
+  flex-wrap: wrap; /* Allow form elements to wrap on smaller screens */
 }
 
 input {
-  padding: 0.5em;
-  font-size: 1em;
+  padding: 0.5rem;
+  font-size: 1rem;
   border: 1px solid #3a6a4a; /* Darker green border */
   border-radius: 5px;
+  width: 100%; /* Full width on small screens */
+  max-width: 400px; /* Limit max width */
 }
 
 button {
   display: block;
-  margin: 1em auto;
-  padding: 0.5em 1em;
-  font-size: 1em;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
   background-color: #356848; /* Dark green */
   color: #ffffff; /* White text */
@@ -48,7 +53,7 @@ button:hover {
 }
 
 div > div {
-  padding: 1em;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -57,96 +62,67 @@ div > div {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #e0efe6; /* White background */
-  height: 70px;
-   /* Subtle shadow for depth */
+  background-color: #e0efe6;
+  height: auto;
 }
 
-/* Style for the brand (ChemCat) */
 .navbar-brand {
-  font-size: 3rem;
+  font-size: 2rem; /* Adjust font size */
   font-weight: bold;
-  color: #22bda8; /* Medium dark green */
+  color: #22bda8;
 }
 
-/* Styles for the links container */
 .navbar-links {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  
+  flex-wrap: wrap; /* Wrap on smaller screens */
 }
 
-/* Styles for each link item */
 .navbar-links li {
-  margin-left: 15px; /* Space between buttons */
-  
+  margin-left: 15px;
 }
 
-/* Basic link styles */
 .navbar a {
   text-decoration: none;
-  color: #333333; /* Dark gray text */
-  
+  color: #333333;
 }
 
-/* Style for the buttons */
 .nav-button {
-  background-color: #a2d3b1; /* Light green */
-  color: #333333; /* Dark gray text */
-  border: 1px solid #4e8a62; /* Medium dark green border */
+  background-color: #a2d3b1;
+  color: #333333;
+  border: 1px solid #4e8a62;
   border-radius: 10px;
   transition: background-color 0.3s ease;
-  margin-right: 30px;
-  font-size: 1.25rem; /* Larger text */
-  padding: 0.75rem 1.25rem; /* Larger button */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+  font-size: 1rem; /* Adjust font size */
+  padding: 0.5rem 1rem;
 }
 
-/* Hover effect for the buttons */
 .nav-button:hover {
-  background-color: #82c197; /* Slightly darker light green on hover */
-  color: #ffffff; /* White text on hover */
+  background-color: #82c197;
+  color: #ffffff;
 }
 
-/* Active button style */
-.nav-button.active {
-  border-radius: 10px;
-  border: 2px solid #356848; /* Dark green border */
-}
-
-/* Override visited state */
-.navbar a:visited {
-  color: inherit; /* Ensure the visited link color is the same as the normal link color */
-}
-
-/* Optional: Additional styles for hover and active states if needed */
-.navbar a:hover {
-  color: inherit; /* Ensure hover and active states do not change the color */
-}
-
-/* Container for the header */
 .header-container {
   position: relative;
   text-align: center;
   color: white;
 }
 
-/* Background image styling */
 .header-image {
   width: 100%;
   height: auto;
-  opacity: 1; /* Optional: Add transparency to the image */
+  opacity: 1;
 }
 
-/* Text overlay styling */
 .header-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay for better readability */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
 }
@@ -154,60 +130,63 @@ div > div {
 .header-text h1 {
   margin: 0;
   font-size: 2rem;
-  color: #e0efe6; /* Light green color for the text */
+  color: #e0efe6;
 }
 
 .total-header-flex {
   display: flex;
-  justify-content: space-evenly; /* Space between the two components */
-  align-items: center; /* Align items vertically centered */
+  justify-content: space-evenly;
+  align-items: center;
   padding: 10px;
+  flex-wrap: wrap; /* Wrap on smaller screens */
 }
 
 .center-header-flex {
   display: flex;
-  justify-content: center; /* Space between the two components */
-  align-items: center; /* Align items vertically centered */
+  justify-content: center;
+  align-items: center;
   padding: 10px;
+  flex-wrap: wrap; /* Wrap on smaller screens */
 }
 
 .total-header-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; /* Space between the items */
-  align-items: center; /* Align items vertically centered */
+  justify-content: space-evenly;
+  align-items: center;
   padding: 10px;
+  flex-wrap: wrap; /* Wrap on smaller screens */
 }
 
 .bullets {
   padding: 0;
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .styled-list {
   list-style-type: none;
   list-style: none;
-  display: 'flex';
-    justify-content: 'center';
-    align-items: 'center';
-    height: '100vh';
-    margin: 0;
-    background-color: '#e6f2e9'; 
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #e6f2e9;
+}
 
 .bullets::before {
-  content: "•"; /* Adds bullet point */
-  margin-right: 0.5em; /* Adds space between bullet point and text */
-  color: #356848; /* Dark green bullet point */
+  content: "•";
+  margin-right: 0.5em;
+  color: #356848;
 }
 
 .equation-input-and-button {
   display: flex;
-  flex-direction: row; /* Change to column if you want the button and input stacked vertically */
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  flex-wrap: wrap; /* Wrap input and button on smaller screens */
 }
 
 .equation-input-and-button button,
@@ -216,52 +195,49 @@ div > div {
 }
 
 .equation-input-and-button button {
-  padding: 15px 30px; /* Increase padding for a larger button */
-  font-size: 1.5rem; /* Increase font size for the button */
+  padding: 15px 30px;
+  font-size: 1.5rem;
   cursor: pointer;
-  background-color: #4e8a62; /* Medium dark green */
-  color: #ffffff; /* White text */
-  border: 2px solid #356848; /* Dark green border */
+  background-color: #4e8a62;
+  color: #ffffff;
+  border: 2px solid #356848;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
 .equation-input-and-button button:hover {
-  background-color: #2b553a; /* Even darker green on hover */
+  background-color: #2b553a;
 }
 
 .equation-input-and-button input {
   padding: 15px;
-  font-size: 1.5rem; /* Increase font size for the input text */
-  width: 525px; /* Set a larger width for the input */
-  border: 2px solid #3a6a4a; /* Darker green border */
-  border-radius: 5px; /* Rounded corners */
+  font-size: 1.5rem;
+  width: 100%; /* Full width on small screens */
+  max-width: 525px; /* Limit max width */
+  border: 2px solid #3a6a4a;
+  border-radius: 5px;
 }
 
 .switch {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* Wrap on smaller screens */
 }
-
 
 .option {
   padding: 10px 20px;
-  border: 1px solid #356848; /* Dark green border */
-  background-color: #a5d6a7; /* Lighter green for unselected buttons */
-  color: #356848; /* Dark green text for unselected buttons */
+  border: 1px solid #356848;
+  background-color: #a5d6a7;
+  color: #356848;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   border-radius: 5px;
 }
 
 .option.selected {
-  background-color: #004d40; /* Darker teal for selected button */
-  color: #ffffff; /* White text for selected */
+  background-color: #004d40;
+  color: #ffffff;
 }
-
-
-
-
 
 .mini-window {
   position: fixed;
@@ -269,25 +245,25 @@ div > div {
   left: 50%;
   transform: translate(-50%, -20%);
   background-color: white;
-  border: 1px solid #cccccc; /* Light gray border */
+  border: 1px solid #cccccc;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  width: 90%; /* Make mini-window responsive */
+  max-width: 500px; /* Limit max width */
 }
 
 .Modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  right: auto;
-  bottom: auto;
   transform: translate(-50%, -50%);
   background: white;
-  border: 1px solid #cccccc; /* Light gray border */
+  border: 1px solid #cccccc;
   padding: 20px;
-  width: auto; /* Set width to auto */
-  max-width: 90%; /* Ensure it doesn’t exceed 90% of viewport */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  width: 90%; /* Make modal responsive */
+  max-width: 500px; /* Limit max width */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .image-container {
@@ -299,18 +275,17 @@ div > div {
 }
 
 .Modal img {
-  max-width: 100%; /* Ensure images are responsive */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
 }
 
-/* Overlay styling */
 .Overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
+  background-color: rgba(0, 0, 0, 0.75);
   z-index: 1000;
 }
 
@@ -327,14 +302,14 @@ div > div {
   width: 20%;
   padding: 20px;
   margin: 1%;
-  background-color: #a2d3b1; /* Light green */
-  color: #333333; /* Dark gray text */
-  border: 1px solid #4e8a62; /* Medium dark green border */
+  background-color: #a2d3b1;
+  color: #333333;
+  border: 1px solid #4e8a62;
   transition: background-color 0.3s ease;
 }
 
 .question-buttons:hover {
-  background-color: #82c197; /* Slightly darker light green on hover */
+  background-color: #82c197;
 }
 
 .molarity-button-container {
@@ -345,9 +320,9 @@ div > div {
 
 .molarity-button {
   padding: 10px 20px;
-  border: 1px solid #356848; /* Dark green border for both selected and unselected buttons */
-  background-color: #8fbf99; /* Lighter green for unselected buttons */
-  color: #356848; /* Dark green text for unselected buttons */
+  border: 1px solid #356848;
+  background-color: #8fbf99;
+  color: #356848;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   position: relative;
@@ -357,8 +332,8 @@ div > div {
 }
 
 .molarity-button.selected {
-  background-color: #004d40; /* Darker teal for selected button */
-  color: #ffffff; /* White text for selected */
+  background-color: #004d40;
+  color: #ffffff;
   z-index: 2;
 }
 
@@ -391,7 +366,6 @@ div > div {
   transform: translateX(100%);
 }
 
-
 .form-group {
   margin-bottom: 15px;
 }
@@ -404,19 +378,70 @@ div > div {
 
 .calculate-button {
   padding: 11px 20px;
-  background-color: #004d40; /* Darker teal */
-  color: white; /* White text */
+  background-color: #004d40;
+  color: white;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .calculate-button:hover {
-  background-color: #003c32; /* Darker teal on hover */
+  background-color: #003c32;
 }
 
 body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-button {
+    margin: 5px 0;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .question-buttons {
+    width: 45%;
+    margin: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .navbar-links li {
+    margin: 5px 0;
+  }
+
+  .header-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .question-buttons {
+    width: 100%;
+    margin: 5% 0;
+  }
 }
