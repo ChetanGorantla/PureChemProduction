@@ -1765,7 +1765,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Chemical_Equilibrium_1.png"
+      solutionImage: "/solutions/Chemical_equilibrium_1.png"
     },
     {
       questionHeader: "Consider the following reaction HC2H3O2 + NH3 -> NH4+ + C2H3O2-. The Kc for this reaction is 3.24*10^-10. What is the Kc for 1/2HC2H3O2 + 1/2NH3 -> 1/2NH4+ + 1/2C2H3O2-?",
@@ -1779,7 +1779,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Chemical_Equilibrium_2.png"
+      solutionImage: "/solutions/Chemical_equilibrium_2.png"
     },
     {
       questionHeader: "Consider a mythical gas reaction with Kp = 20.4 at 298 K. A(g) + B(g) <-> 2 AB(g). A sealed vessel of 2.0 L initially had 0.020 mol of both A and B respectively. After equilibrium is reached, how many moles of AB are there?",
@@ -1793,7 +1793,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Chemical_Equilibrium_3.png"
+      solutionImage: "/solutions/Chemical_equilibrium_3.png"
     },
     {
       questionHeader: "Consider 2 mythical elements A and B. The vapor pressure of A(l) is 0.708 atm while the vapor pressure of B(l) is 0.503 atm at 298K. Given those two values, find the Kc of A(l) + B(l) -> A(g) + B(g).",
@@ -1807,7 +1807,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Chemical_Equilibrium_4.png"
+      solutionImage: "/solutions/Chemical_equilibrium_4.png"
     },
     {
       questionHeader: "A student wants to find the change in standard enthalpy of a reaction and plans on plotting a graph to find it. Which of the following graphs should the student use? I. lnK vs 1/T II. Change in free Gibbs energy vs T",
@@ -1821,7 +1821,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Chemical_Equilibrium_5.png"
+      solutionImage: "/solutions/Chemical_equilibrium_5.png"
     }
   ],
   "Equilibrium Solubility": [
@@ -1837,7 +1837,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Equilibrium_Solubility_1.png"
+      solutionImage: "/solutions/Equilibrium_solubility_1.png"
     },
     {
       questionHeader: "The compound BaSO3 dissolves in neutral water with a solubility of 194 mg/L. Find the Ksp of BaSO3 at the same temperature.",
@@ -1851,7 +1851,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: false,
       solutionText: "",
-      solutionImage: "/solutions/Equilibrium_Solubility_2.png"
+      solutionImage: "/solutions/Equilibrium_solubility_2.png"
     },
     {
       questionHeader: "A student currently has 0.40 M of KCl in a solution of 2.0 L. If the Ksp of PbCl2 is 1.8*10^-5, how many grams of Pb(NO3)2 must the student add to the solution to form a precipitate?",
@@ -1865,7 +1865,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Equilibrium_Solubility_3.png"
+      solutionImage: "/solutions/Equilibrium_solubility_3.png"
     },
     {
       questionHeader: "What is the pH of a saturated solution of Co(OH)2? The Ksp of Co(OH)2 is 5.9*10–15 USNCO 2018 National Exam.",
@@ -1893,7 +1893,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Equilibrium_Solubility_4.png"
+      solutionImage: "/solutions/Equilibrium_solubility_4.png"
     },
     {
       questionHeader: "A student has 1.0 M solutions of the following list of compounds to which he can add PbF2 into the solutions. How many of the following solutions would result in the molar solubility of PbF2 being greater than that of PbF2 in neutral water? KHCO3, AlCl3, NaHSO4.",
