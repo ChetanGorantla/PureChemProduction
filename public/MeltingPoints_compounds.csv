@@ -1,0 +1,280 @@
+Substance,Formula,Melting point (°C),Boiling temperature (°C)
+Aluminium,Al,660.3,2519
+Aluminium bromide,AlBr3,97.5,255
+Aluminium chloride,AlCl3,192.6,sub 180
+Aluminium fluoride,AlF3,tp 2250*,sub 1276
+Aluminium hydroxide,Al(OH)3,,
+Aluminium iodide,AlI3,188.28,382
+Aluminium oxide,Al2O3,2053,2977
+Aluminium phosphate,AlPO4,>1460,
+Ammonium,NH3,-77.65,-33.33
+Ammonium chloride,NH4Cl,tp 520.1,sub 338
+Ammonium nitrate,NH4NO3,169.7,d 200-260
+Ammonium sulfate,(NH4)2SO4,d 280,
+Boron,B,2077,40000
+Boron fluoride,BF3,-126.8,-99.9
+Boron sulfide,B2S3,563,
+Barium,Ba,727,~1845
+Barium bromide,BaBr2,857,1835
+Barium carbonate,BaCO3,1555,
+Barium chloride,BaCl2,961,1560
+Barium fluoride,BaF2,1368,2260
+Barium hydride,BaH2,1200,
+Barium iodide,BaI2,711,
+Barium oxide,BaO,1973,
+Barium sulfate,BaSO4,1580,
+Beryllium,Be,1287,2468
+Beryllium bromide,BeBr2,508,sub 473
+Beryllium chloride,BeCl2,415,482
+Beryllium fluoride,BeF2,552,1283
+Beryllium hydroxide,Be(OH)2,d ~200,
+Beryllium iodide,BeI2,480,590
+Beryllium oxide,BeO,2578,
+Beryllium sulfate,BeSO4,1127,1283
+Bismuth,Bi,271.4,1564
+Bismuth oxide,Bi2O3,825,1890
+Bromine,Br2,-7.2,58.8
+Bromine chloride,BrCl,-66,d 5
+Bromine fluoride,BrF,~33,d ~20
+Bromine trifluoride,BrF3,8.77,125.8
+Cadmium,Cd,321.1,767
+Cadmium bromide,CdBr2,568,863
+Cadmium chloride,CdCl2,568,964
+Cadmium carbonate,CdCO3,d 500,
+Cadmium fluoride,CdF2,1075,1750
+Cadmium sulfide,CdS,~1480,
+Cadmium sulfate,CdSO4,1000,
+Calcium,Ca,842,1484
+Calcium bromide,CaBr2,742,1815
+Calcium carbonate (aragonite),CaCO3,450*,
+Calcium carbonate (calcite),CaCO3,800,
+Calcium chloride,CaCl2,775,1935
+Calcium cyanamide,CaCN2,~1340,sub
+Calcium fluoride,CaF2,1418,2500
+Calcium hydride,CaH2,1000,
+Calcium hydroxide,Ca(OH)2,,
+Calcium iodide,CaI2,783,1100
+Calcium oxide,CaO,2613,
+Calcium sulfate,CaSO4,1460,
+Carbon (diamond),C,4440*,,
+Carbon (graphite),C,tp 4489*,sub 3825
+Carbon bromide,CBr4,90,190
+Carbon chloride,CCl4,-23,77
+Carbon dioxide,CO2,tp -56.561,sub -78.464
+Carbon disulfide,CS2,-111.7,46.2
+Carbon fluoride,CF4,-184,-128
+Carbon monoxide,CO,-205.1,-19151
+Carbon oxychloride,CCl2O,-104,8
+Cesium,Cs,28.5,671
+Cesium chloride,CsCl,646,1297
+Chlorine,Cl2,-101.5,-34.04
+Chlorine dioxide,ClO2,-59,11
+Chlorine fluoride,ClF,-155.6,-101.1
+Chlorine monoxide,Cl2O,-120.6,2.2
+Chlorine trifluoride,ClF3,-76.34,11.75
+Chromium,Cr,1907,2671
+Chromium(II) chloride,CrCl2,824,1120
+Chromium(III) chloride,CrCl3,827,d 1300
+Chromium(III) oxide,Cr2O3,2432,~3000
+Chromium(IV) oxide,CrO2,d ~400,
+Chromium(VI) oxide,CrO3,197,d ~250
+Cobalt,Co,1495,2927
+Cobalt chloride,CoCl2,737,1049
+Cobalt nitrate,Co(NO3)2,d 100,
+Copper,Cu,1084.6,2560
+Copper(I) bromide,CuBr,483,1345
+Copper(II) bromide,CuBr2,498,900
+Copper(I) chloride,CuCl,423,1490
+Copper(II) chloride,CuCl2,598,993
+Copper cyanide,CuCN,474,d
+Copper(I) oxide,Cu2O,1244,d 1800
+Copper(II) oxide,CuO,1227,
+Copper sulfate,CuSO4,d 560,
+Copper(I) sulfide,Cu2S,1129,
+Copper(II) sulfide,CuS,trans 507,
+Fluorine,F2,-219.7,-188.1
+Fluorine oxide,F2O,-223.8,-144.3
+Hydrogen,H2,-259.16,-252.9
+Hydrogen bromide,HBr,-86.8,-66.4
+Hydrogen chloride,HCl,-114.17,-85
+Hydrogen cyanide,HCN,-13.3,25.6
+Hydrogen fluoride,HF,-83.36,20
+Hydrogen iodide,HI,-50.76,-35.55
+Hydrogen nitrate,HNO3,-41.6,83
+Hydrogen peroxide,H2O2,-0.43,150.2
+Hydrogen selenide,H2Se,-65.73,-41.25
+Hydrogen sulfide,H2S,-85.5,-59.55
+Iodine,I2,113.7,184.4
+Iodic acid,HIO3,d 110,
+Iodine bromide,IBr,40,d 116
+Iodine chloride,ICl,27.38,d 97.0
+Iodine fluoride,IF,d -14,
+Iron,Fe,1538,2861
+Iron(II) bromide,FeBr2,691,
+Iron(III) bromide,FeBr3,d,
+Iron carbide,Fe3C,1227,
+Iron(II) carbonate,FeCO3,,,
+Iron(II) chloride,FeCl2,677,1023
+Iron(III) chloride,FeCl3,307.6,~316
+Iron(I) oxide,FeO,1377,
+Iron(III) oxide,Fe2O3,1539,
+Iron(II,III) oxide,Fe3O4,1597,
+Iron(II) sulfide,FeS2,,
+Lead,Pb,327.46,1749
+Lead(II) carbonate,PbCO3,d ~315,
+Lead(II) chloride,PbCl2,501,951
+Lead(II) nitrate,Pb(NO3)2,470,
+Lead(II) oxide (red or litharge),PbO,489*,
+Lead(II) oxide (yellow or massicot),PbO,887,
+Lead(IV) oxide,PbO2,d 290,
+Lead(II) sulfate,PbSO4,1087,
+Lead(II) sulfide,PbS,1113,
+Lithium,Li,180.5,1342
+Lithium bromide,LiBr,550,~1300
+Lithium chloride,LiCl,610,1383
+Lithium fluoride,LiF,848.2,1673
+Lithium hydroxide,LiOH,473,1626
+Lithium iodide,LiI,469,1171
+Lithium nitrate,LiNO3,253,
+Lithium oxide,Li2O,1438,
+Magnesium,Mg,650,1090
+Magnesium bromide,MgBr2,711,
+Magnesium chloride,MgCl2,714,1412
+Magnesium fluoride,MgF2,1263,2227
+Magnesium hydroxide,Mg(OH)2,350,
+Magnesium oxide,MgO,2825,3600
+Magnesium sulfate,MgSO4,1137,
+Magnesium sulfide,MgS,2226,
+Manganese,Mn,1246,2061
+Manganese(II) bromide,MnBr2,698,
+Manganese(II) chloride,MnCl2,650,1190
+Manganese(II) oxide,MnO,1842,
+Manganese(IV) oxide,MnO2,d 535,
+Manganese(II) bromide,MnBr2,698,
+Manganese(II) chloride,MnCl2,650,
+Mercury,Hg,-38.8,356.6
+Mercury(I) bromide,Hg2Br2,d 345,
+Mercury(II) bromide,HgBr2,241,318
+Mercury(I) chloride,Hg2Cl2,tp 525,sub 383
+Mercury(II) chloride,HgCl2,277,304
+Mercury(I) iodide,Hg2I2,290,
+Mercury(II) iodide,HgI2,127* / 250,354
+Mercury(II) oxide,HgO,d 500,
+Mercury(I) sulfate,Hg2SO4,277,
+Mercury(II) sulfate,HgSO4,,304
+Mercury(II) sulfide (red),HgS,344*,
+Mercury(II) sulfide (black),HgS,820,
+Molybdenum,Mo,2622,4639
+Molybdenum(IV) oxide,MoO2,d ~1800,
+Molybdenum(VI) oxide,MoO3,802,1155
+Molybdenum(IV) sulfide,MoS2,1750,
+Molybdenum(VI) sulfide,MoS3,d 350,
+Nitrogen,N2,-210,-195.79
+Nitrogen dioxide,NO2,,,
+Nitrogen oxide,NO,-163.6,-151.74
+Nitrogen tetroxide,N2O4,-9.3,21.15
+Nitrogen trifluoride,NF3,-206.79,-128.75
+Nitrous oxide,N2O,-90.8,-88.48
+Nickel,Ni,1455,2913
+Nickel(II) bromide,NiBr2,963,sub
+Nickel(II) chloride,NiCl2,1031,sub 985
+Nickel(II) fluoride,NiF2,1380,
+Nickel(II) hydroxide,Ni(OH)2,d 230,
+Nickel(III) oxide,Ni2O3,~600,
+Osmium,Os,3033,5008
+Osmium(VIII) oxide,OsO4,40.6,131.2
+Oxygen,O2,-218.79,-182.96
+Ozone,O3,-193,-111.35
+Phosphine,PH3,-133.8,-87.75
+Phosphonic acid,H3PO4,42.4,407
+Phosphorus (black),P,610,
+Phosphorus (red),P,579.2,sub 431
+Phosphorus (white),P,44.15,280.5
+Phosphorus(III) chloride,PCl5,tp 167,sub 160
+Phosphorus(V) oxide,P2O5,562,605
+Phosphorus trichloride,PCl3,-93,76
+Phosphoryl chloride,POCl3,1.18,105.5
+Potassium,K,63.5,759
+Potassium bromide,KBr,734,1435
+Potassium carbonate,K2CO3,899,d
+Potassium chlorate,KClO3,357,d
+Potassium chloride,KCl,771,
+Potassium cyanide,KCN,622,
+Potassium fluoride,KF,858,1502
+Potassium iodide,KI,681,1323
+Potassium manganate,KMnO4,d,
+Potassium nitrate,KNO3,334,d 400
+Potassium nitrite,KNO2,438,e 537
+Potassium oxide,K2O,740,
+Potassium peroxide,K2O2,545,d
+Potassium sulfate,K2SO4,1069,
+Rubidium,Rb,39.3,688
+Rubidium chloride,RbCl,724,1390
+Silver,Ag,961.8,2162
+Silver bromide,AgBr,430,1502
+Silver carbonate,Ag2CO3,218,
+Silver chloride,AgCl,455,1547
+Silver cyanide,AgCN,d 320,
+Silver fluoride,AgF,435,1159
+Silver iodide,AgI,558,1506
+Silver nitrate,AgNO3,210,d 440
+Silver oxide,Ag2O,827,
+Silver sulfate,Ag2SO4,660,
+Silver sulfide,Ag2S,836,
+Sodium,Na,97.794,882.94
+Sodium azide,NaN3,d 300,
+Sodium bromide,NaBr,747,1390
+Sodium carbonate,Na2CO3,856,
+Sodium chloride,NaCl,802.02,1465
+Sodium cyanide,NaCN,562,
+Sodium fluoride,NaF,996,1704
+Sodium hydride,NaH,638,
+Sodium hydroxide,NaOH,323,1388
+Sodium nitrate,NaNO3,306.5,
+Sodium oxide,Na2O,1134,
+Sodium peroxide,Na2O2,675,
+Sodium sulfate,Na2SO4,884,
+Sodium superoxide,NaO2,284,d >320
+Sulfur (rhombic),S,92.5*,444.61
+Sulfur (monoclinic),S,115.21,444.61
+Sulfuric acid,H2SO4,10.31,337
+Sulfur dioxide,SO2,-75.45,10.02
+Sulfur trioxide (γ-form),SO3,16.8,44.5
+Sulfuryl chloride,SO2Cl2,-51,69.4
+Selenium (gray),Se,220.8,685
+Silicon,Si,1414,3265
+Silicon carbide (hexagonal),SiC,2830,
+Silicon tetraboride,SiB4,d 1870,
+Silane,SiH4,-185,-111.9
+Tin (gray),Sn,13.2*,2586
+Tin (white),Sn,231.9,2586
+Tin(IV) chloride,SnCl4,-34.07,114.15
+Tin(IV) oxide,SnO2,1630,
+Titanium,Ti,1670,3287
+Titanium(II) chloride,TiCl2,1035,1500
+Titanium(III) chloride,TiCl3,d 425,960
+Titanium(IV) chloride,TiCl4,-24.12,136.45
+Titanium(IV) oxide (rutile),TiO2,1912,~3000
+Uranium,U,1135,4131
+Uranium (IV) fluoride,UF4,1036,1417
+Uranium (VI) fluoride,UF6,tp 64.06,sub 56.5
+Uranium (IV) oxide,UO2,2847,
+Vanadium,V,1910,3407
+Vanadium(III) chloride,VCl3,d 500,
+Vanadium(IV) chloride,VCl4,-28,151
+Vanadium(V) oxide,V2O5,681,1750
+Water,H2O,0.00,99.974
+Zinc,Zn,419.5,907
+Zinc bromide,ZnBr2,402,~670
+Zinc chloride,ZnCl2,325,732
+Zinc fluoride,ZnF2,872,1500
+Zinc iodide,ZnI2,450,625
+Zinc oxide,ZnO,1974,
+Zinc nitrate,Zn(NO3)2,d,
+Zinc sulfate,ZnSO4,d 680,
+Zinc sulfide (sphalerite),ZnS,1020*,
+Zinc sulfide (wurtzite),ZnS,1827,sub
+Zirconium,Zr,1854,4406
+Zirconium(II) chloride,ZrCl2,722,
+Zirconium(IV) chloride,ZrCl4,tp 437,sub 331
+

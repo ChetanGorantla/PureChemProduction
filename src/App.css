@@ -1,38 +1,422 @@
-.App {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #e0efe6; /* Light green background */
+}
+
+header {
+  background-color: #4e8a62; /* Medium dark green */
+  padding: 2em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header h1 {
+  margin: 0;
+  color: #ffffff; /* White text */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 2em 0;
+}
+
+input {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #3a6a4a; /* Darker green border */
+  border-radius: 5px;
+}
+
+button {
+  display: block;
+  margin: 1em auto;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #356848; /* Dark green */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2b553a; /* Even darker green on hover */
+}
+
+div > div {
+  padding: 1em;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #e0efe6; /* White background */
+  height: 70px;
+   /* Subtle shadow for depth */
+}
+
+/* Style for the brand (ChemCat) */
+.navbar-brand {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #22bda8; /* Medium dark green */
+}
+
+/* Styles for the links container */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+/* Styles for each link item */
+.navbar-links li {
+  margin-left: 15px; /* Space between buttons */
+  
+}
+
+/* Basic link styles */
+.navbar a {
+  text-decoration: none;
+  color: #333333; /* Dark gray text */
+  
+}
+
+/* Style for the buttons */
+.nav-button {
+  background-color: #a2d3b1; /* Light green */
+  color: #333333; /* Dark gray text */
+  border: 1px solid #4e8a62; /* Medium dark green border */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  margin-right: 30px;
+  font-size: 1.25rem; /* Larger text */
+  padding: 0.75rem 1.25rem; /* Larger button */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for the buttons */
+.nav-button:hover {
+  background-color: #82c197; /* Slightly darker light green on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+/* Active button style */
+.nav-button.active {
+  border-radius: 10px;
+  border: 2px solid #356848; /* Dark green border */
+}
+
+/* Override visited state */
+.navbar a:visited {
+  color: inherit; /* Ensure the visited link color is the same as the normal link color */
+}
+
+/* Optional: Additional styles for hover and active states if needed */
+.navbar a:hover {
+  color: inherit; /* Ensure hover and active states do not change the color */
+}
+
+/* Container for the header */
+.header-container {
+  position: relative;
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Background image styling */
+.header-image {
+  width: 100%;
+  height: auto;
+  opacity: 1; /* Optional: Add transparency to the image */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Text overlay styling */
+.header-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay for better readability */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #e0efe6; /* Light green color for the text */
+}
+
+.total-header-flex {
+  display: flex;
+  justify-content: space-evenly; /* Space between the two components */
+  align-items: center; /* Align items vertically centered */
+  padding: 10px;
+}
+
+.center-header-flex {
+  display: flex;
+  justify-content: center; /* Space between the two components */
+  align-items: center; /* Align items vertically centered */
+  padding: 10px;
+}
+
+.total-header-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* Space between the items */
+  align-items: center; /* Align items vertically centered */
+  padding: 10px;
+}
+
+.bullets {
+  padding: 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.styled-list {
+  list-style-type: none;
+  list-style: none;
+  display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    height: '100vh';
+    margin: 0;
+    background-color: '#e6f2e9'; 
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+.bullets::before {
+  content: "•"; /* Adds bullet point */
+  margin-right: 0.5em; /* Adds space between bullet point and text */
+  color: #356848; /* Dark green bullet point */
+}
+
+.equation-input-and-button {
+  display: flex;
+  flex-direction: row; /* Change to column if you want the button and input stacked vertically */
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.equation-input-and-button button,
+.equation-input-and-button form {
+  margin: 10px;
+}
+
+.equation-input-and-button button {
+  padding: 15px 30px; /* Increase padding for a larger button */
+  font-size: 1.5rem; /* Increase font size for the button */
+  cursor: pointer;
+  background-color: #4e8a62; /* Medium dark green */
+  color: #ffffff; /* White text */
+  border: 2px solid #356848; /* Dark green border */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.equation-input-and-button button:hover {
+  background-color: #2b553a; /* Even darker green on hover */
+}
+
+.equation-input-and-button input {
+  padding: 15px;
+  font-size: 1.5rem; /* Increase font size for the input text */
+  width: 525px; /* Set a larger width for the input */
+  border: 2px solid #3a6a4a; /* Darker green border */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.switch {
+  display: flex;
+  gap: 10px;
+}
+
+
+.option {
+  padding: 10px 20px;
+  border: 1px solid #356848; /* Dark green border */
+  background-color: #a5d6a7; /* Lighter green for unselected buttons */
+  color: #356848; /* Dark green text for unselected buttons */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+.option.selected {
+  background-color: #004d40; /* Darker teal for selected button */
+  color: #ffffff; /* White text for selected */
+}
+
+
+
+
+
+.mini-window {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background-color: white;
+  border: 1px solid #cccccc; /* Light gray border */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  z-index: 1000;
+}
+
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #cccccc; /* Light gray border */
+  padding: 20px;
+  width: auto; /* Set width to auto */
+  max-width: 90%; /* Ensure it doesn’t exceed 90% of viewport */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  height: auto;
+}
+
+.Modal img {
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Overlay styling */
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
+  z-index: 1000;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.question-buttons {
+  border-radius: 5px;
+  width: 20%;
+  padding: 20px;
+  margin: 1%;
+  background-color: #a2d3b1; /* Light green */
+  color: #333333; /* Dark gray text */
+  border: 1px solid #4e8a62; /* Medium dark green border */
+  transition: background-color 0.3s ease;
+}
+
+.question-buttons:hover {
+  background-color: #82c197; /* Slightly darker light green on hover */
+}
+
+.molarity-button-container {
+  display: flex;
+  margin-top: 20px;
+  position: relative;
+}
+
+.molarity-button {
+  padding: 10px 20px;
+  border: 1px solid #356848; /* Dark green border for both selected and unselected buttons */
+  background-color: #8fbf99; /* Lighter green for unselected buttons */
+  color: #356848; /* Dark green text for unselected buttons */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1;
+  outline: none;
+  border-radius: 0;
+}
+
+.molarity-button.selected {
+  background-color: #004d40; /* Darker teal for selected button */
+  color: #ffffff; /* White text for selected */
+  z-index: 2;
+}
+
+.molarity-button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.molarity-button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.molarity-button-container::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s;
+}
+
+.molarity-button.selected:first-child ~ .button-container::before {
+  transform: translateX(0);
+}
+
+.molarity-button.selected:last-child ~ .button-container::before {
+  transform: translateX(100%);
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculate-button {
+  padding: 11px 20px;
+  background-color: #004d40; /* Darker teal */
+  color: white; /* White text */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+  background-color: #003c32; /* Darker teal on hover */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
