@@ -4,27 +4,14 @@ from flask import Flask, jsonify, request
 import re
 import numpy as np
 from flask_cors import CORS
-import pandas as pd
+from pandas import read_csv
 import math
-import scipy.optimize as opt
-import re
-import pandas as pd
-import numpy as np
 from fractions import Fraction
-from numpy.linalg import lstsq
 from collections import defaultdict
 from scipy.optimize import lsq_linear
-import re
-from collections import defaultdict
 from math import gcd
 from functools import reduce
-import pandas as pd
-import numpy as np
-from fractions import Fraction
 from numpy.linalg import lstsq
-from collections import defaultdict
-from scipy.optimize import lsq_linear
-
 import logging
 
 # Configure flask app
@@ -560,8 +547,8 @@ def get_melting_point(molecule, elements_df, compounds_df):
 def loading(molecules):
 
     # Load data from CSV files, ignoring extra columns
-    elements_df = pd.read_csv('./public/MeltingPoints_elements.csv')
-    compounds_df = pd.read_csv('./public/MeltingPoints_compounds.csv', usecols=[1, 2])
+    elements_df = read_csv('./public/MeltingPoints_elements.csv')
+    compounds_df = read_csv('./public/MeltingPoints_compounds.csv', usecols=[1, 2])
 
     # Get user input
     molecules = molecules.split(',')
@@ -611,7 +598,7 @@ def get_solubility(compound, solubility_df):
     return None
 
 def solubilityProcessing(compounds):
-    solubility_df = pd.read_csv('./public/Solubility.csv')
+    solubility_df = read_csv('./public/Solubility.csv')
 
     # Get user input
     compounds = compounds.split(',')
@@ -856,7 +843,7 @@ def balancing(equation):
   balanced_equation = balance_equation(equation,hasion)
   return balanced_equation
 
-df = pd.read_csv("./public/thermolist.csv")
+df = read_csv("./public/thermolist.csv")
 sub = df['Substance'].tolist()
 def remove_states(reaction):
     # This regular expression matches the state notation (e.g., (g), (l), (s), (aq))
@@ -1980,7 +1967,7 @@ def acid_redox():
 
 #dG dH dS K
 
-thermo_df = pd.read_csv("./public/thermolist.csv")
+thermo_df = read_csv("./public/thermolist.csv")
 isgood = True
 def round_to_sig_figs_thermo(value, sig_figs):
     """
@@ -2351,12 +2338,12 @@ def round_to_sig_figs(value, sig_figs):
 
     return rounded_value
 
-periodic = pd.read_csv("./public/periodic-table-detailed.csv")
+periodic = read_csv("./public/periodic-table-detailed.csv")
 
 data_dict = periodic.set_index('symbol').to_dict()['atomic_mass']
 
 
-import numpy as np
+
 from scipy.optimize import fsolve
 
 def find_final_concentrations(RM, PM, Rcoe, Pcoe,Rog,Pog, K):

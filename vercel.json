@@ -1,18 +1,12 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/scripts/App.py",
-        "use": "@vercel/python"
-      },
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build"
+  "version": 2,
+  "functions": {
+      "api/**": {
+          "excludeFiles": "{.next,*.cache,node_modules}/**"
       }
-    ],
-    "routes": [
-      { "src": "/api/.*", "dest": "src/scripts/App.py" },
-      { "src": "/(.*)", "dest": "/build/$1" }
-    ]
-  }
-  
+  },
+  "routes": [
+    { "src": "/api/.*", "dest": "api/App.py" },
+    { "src": "/(.*)", "dest": "/build/$1" }
+  ]
+}
