@@ -65,6 +65,7 @@ const Reactions = () => {
   };
 
   const getDeltaCalculations = async (backendBalancedEq) => {
+    console.log(backendBalancedEq);
     if (!backendBalancedEq.includes('(s)') && !backendBalancedEq.includes('(l)') && !backendBalancedEq.includes('(g)') && !backendBalancedEq.includes('(aq)')) {
       setError('No states given, cannot calculate dG, dH, dS');
       return;
@@ -161,6 +162,7 @@ const Reactions = () => {
         RM: reactantValues,
         PM: productValues,
         volume: volume,
+        K: K
       });
       console.log(backendBalancedEq);
       setIceResults({ R: response.data.R, P: response.data.P });

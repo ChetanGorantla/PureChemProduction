@@ -2692,10 +2692,11 @@ def ice_loading():
     reaction = data.get('reaction')
     RM = data.get('RM')
     PM = data.get('PM')
+    K = data.get('K')
 
     RM, PM = FixingICE(RM, PM, volume)
     print(RM, PM)
-    R, P, string = ICE(reaction, 45, RM, PM)
+    R, P, string = ICE(reaction, K, RM, PM)
     
     print(f"Returning result: {R, P, string}")
     return jsonify({'R': R, 'P': P, 'string': string})
