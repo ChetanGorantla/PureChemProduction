@@ -98,7 +98,7 @@ const Reactions = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Reset error message before processing
-    setError("");
+    
     
     if (equation.includes('^')) {
       setBalancedEq('Not applicable');
