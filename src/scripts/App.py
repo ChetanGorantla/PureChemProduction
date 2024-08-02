@@ -2699,7 +2699,8 @@ def ice_loading():
     reaction = data.get('reaction')
     RM = data.get('RM')
     PM = data.get('PM')
-    K = data.get('K')
+    K = float(data.get('K'))
+
 
     RM, PM = FixingICE(RM, PM, volume)
     print(RM, PM)
