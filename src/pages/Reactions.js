@@ -37,7 +37,7 @@ const Reactions = () => {
       console.log("Backend Response:", response.data.result);
       console.log("Balanced equation:", balancedEq);
       console.log("Backend balanced equation:", backendBalancedEq);
-      setError(''); // Clear the error if successful
+      
       
       await getDeltaCalculations(equation);
       await splitReaction(equation);
@@ -62,7 +62,7 @@ const Reactions = () => {
       const initialProductValues = response.data.products.reduce((acc, curr) => ({ ...acc, [cleanUpStates([curr])[0]]: 0 }), {});
       setReactantValues(initialReactantValues);
       setProductValues(initialProductValues);
-      setError('');
+      
     } catch (error) {
       console.error('Error splitting reaction', error);
       setError(error.response?.data?.error || 'An error occurred while splitting the reaction.');
@@ -83,7 +83,7 @@ const Reactions = () => {
       setDeltaS(delta_s0);
       setDeltaH(delta_h0);
       setK(K);
-      setError('');
+      
       console.log("retrieved delta calculations")
     } catch (error) {
       console.error('Error getting delta calculations', error);
@@ -98,7 +98,7 @@ const Reactions = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Reset error message before processing
-    setError('');
+    setError("");
     
     if (equation.includes('^')) {
       setBalancedEq('Not applicable');
@@ -172,7 +172,7 @@ const Reactions = () => {
       console.log(backendBalancedEq);
       setIceResults({ R: response.data.R, P: response.data.P });
       setIceString(response.data.string);
-      setError('');
+      
       setBcaResults({});
     } catch (error) {
       console.error('Error calculating ICE table', error);
@@ -193,7 +193,7 @@ const Reactions = () => {
         remaining_reactants: response.data.remaining_reactants,
         final_products: response.data.final_products,
       });
-      setError('');
+      
       setIceResults({});
     } catch (error) {
       console.error('Error calculating BCA table', error);
@@ -224,7 +224,7 @@ const Reactions = () => {
       const endpoint = type === 'Acid' ? 'acid-redox-equations' : 'base-redox-equations';
       const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/${endpoint}`, { reaction: equation });
       setRedoxResults(response.data);
-      setError('');
+      
     } catch (error) {
       console.error(`Error getting ${type.toLowerCase()} redox equations`, error);
       setError(error.response?.data?.error || `An error occurred while getting ${type.toLowerCase()} redox equations.`);
