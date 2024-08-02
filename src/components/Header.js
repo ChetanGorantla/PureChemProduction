@@ -11,7 +11,7 @@ const Header = () => {
           <p style = {{fontSize:"20px"}}>PureChem is a website designed to help students prepare for AP Chemistry and USNCO.</p>
           <p style = {{fontSize:"20px"}}>Features of this website include:</p>
           <ul className = "styled-list">
-            <li className = "bullets">Reaction calculator that can balance equations, calculate dG, dH, dS, <br/>and provide an ICE and RICE table</li>
+            <li className = "bullets">Reaction calculator that can balance equations, calculate dG, dH, dS, <br/>and provide an ICE and BCA table</li>
             <br></br>
             <li className = "bullets">Titration calculator that calculates the pH at different parts of a titration and finds the unknown molarity</li>
             <br></br>

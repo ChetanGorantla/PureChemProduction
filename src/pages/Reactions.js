@@ -268,7 +268,7 @@ const Reactions = () => {
                 <div key={index}>
                   <label>{item}</label>
                   <input
-                    type="string"
+                    type="text"
                     value={reactantValues[item]}
                     onChange={(e) => handleReactantChange(e, item)}
                     style={{ borderRadius: 10, width: 75, marginLeft: 10 }}
@@ -291,7 +291,7 @@ const Reactions = () => {
                 <div key={index}>
                   <label>{item}</label>
                   <input
-                    type="string"
+                    type="text"
                     value={productValues[item]}
                     onChange={(e) => handleProductChange(e, item)}
                     style={{ borderRadius: 10, width: 75, marginLeft: 10 }}
