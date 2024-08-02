@@ -2694,7 +2694,7 @@ def ice_loading():
     PM = data.get('PM')
 
     RM, PM = FixingICE(RM, PM, volume)
-    
+    print(RM, PM)
     R, P, string = ICE(reaction, 45, RM, PM)
     
     print(f"Returning result: {R, P, string}")
@@ -2710,7 +2710,7 @@ def bca_loading():
     PM = data.get('PM')
 
     RM, PM = FixingBCA(RM, PM, volume)
-    
+    print(RM, PM)
     remaining_reactants, final_products = BCA(reaction, RM, PM)
 
     for reactant in remaining_reactants:
