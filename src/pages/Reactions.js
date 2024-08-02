@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import axios from 'axios';
 
@@ -34,19 +34,19 @@ const Reactions = () => {
       const formattedBalancedEquation = formatEquation(unformattedBalancedEquation);
       setBalancedEq(formattedBalancedEquation);
       setBackendBalancedEq(unformattedBalancedEquation);
-      console.log("Backend Response:", response.data.result);
-      console.log("Balanced equation:", balancedEq);
-      console.log("Backend balanced equation:", backendBalancedEq);
       
-      
-      await getDeltaCalculations(equation);
       await splitReaction(equation);
     } catch (error) {
       console.error('Error balancing equation', error);
       setError(error.response?.data?.error || 'An error occurred while balancing the equation.');
     }
   };
-  
+
+  useEffect(() => {
+    if (backendBalancedEq) {
+      getDeltaCalculations(backendBalancedEq);
+    }
+  }, [backendBalancedEq]);
 
   const cleanUpStates = (list) => {
     return list.map(item => item.replace(/\([a-z]+\)/g, ''));
@@ -97,8 +97,7 @@ const Reactions = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Reset error message before processing
-    
+    setError('');
     
     if (equation.includes('^')) {
       setBalancedEq('Not applicable');
@@ -116,7 +115,6 @@ const Reactions = () => {
       setShowResults(true);
     }
   };
-  
 
   const formatEquation = (input) => {
     const parts = input.split(/(\s+|\+|=|->|<-)/);
