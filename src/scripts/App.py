@@ -2160,6 +2160,10 @@ def get_compounds():
 
 #ICE
 
+periodic = read_csv("./public/periodic-table-detailed.csv")
+data_dict = periodic.set_index('symbol').to_dict()['atomic_mass']
+from scipy.optimize import fsolve
+
 def split_reaction_BI(reaction):
     def remove_coefficients(reaction):
         # Split the reaction into reactants and products
@@ -2219,10 +2223,6 @@ def parse_reaction_state(reaction):
             return '(g)'
         elif '(aq)' in compound:
             return '(aq)'
-        elif '(s, graphite)' in compound:
-           return '(s, graphite)'
-        elif '(s, diamond)' in compound:
-           return '(s, diamond)'
         else:
             return '(N)'
 
@@ -2246,7 +2246,6 @@ def parse_reaction_state(reaction):
         else:
           Pcompound_states[compound] = state
     return Rcompound_states,Pcompound_states
-
 
 def dictionarypar(reaction):
     # Split the reaction into reactants and products
@@ -2279,7 +2278,6 @@ def dictionarypar(reaction):
 
     return reactant_dict, product_dict
 
-
 def remove_states_BI(reaction):
     # This regular expression matches the state notation including complex states and the specific (N) state
     state_pattern = re.compile(r'\([a-z]+(?:, [a-z]+)?\)|\(\bN\b\)')
@@ -2292,7 +2290,7 @@ def remove_states_BI(reaction):
 
     return cleaned_reaction
 
-def remove_coefficients_ice(reaction):
+def remove_coefficients(reaction):
     # Split the reaction into reactants and products
     reactants, products = reaction.split('->')
     reactants = reactants.split(' + ')
@@ -2320,8 +2318,6 @@ def remove_coefficients_ice(reaction):
     new_reaction = reactants_no_coeff_str + ' -> ' + products_no_coeff_str
     return new_reaction
 
-
-
 def round_to_sig_figs(value, sig_figs):
     """
     Rounds a number to the specified number of significant figures.
@@ -2338,14 +2334,6 @@ def round_to_sig_figs(value, sig_figs):
     # Format the value to ensure it has the correct number of significant figures
 
     return rounded_value
-
-periodic = read_csv("./public/periodic-table-detailed.csv")
-
-data_dict = periodic.set_index('symbol').to_dict()['atomic_mass']
-
-
-
-from scipy.optimize import fsolve
 
 def find_final_concentrations(RM, PM, Rcoe, Pcoe,Rog,Pog, K):
         # Extract reactants and products
@@ -2431,12 +2419,11 @@ def molesToMol(moles,volume):
   return moles/volume
 def computeQ(Rcoe,Pcoe,RMdict,PMdict):
   def computeden(Rc,RM):
-    
     Qlist = []
     product = 1
     for compound in Rc:
-      power = (Rc[compound])
-      molarity = (RM[compound])
+      power = Rc[compound]
+      molarity = RM[compound]
       value = math.pow(molarity,power)
       Qlist.append(value)
     for value in Qlist:
@@ -2446,9 +2433,8 @@ def computeQ(Rcoe,Pcoe,RMdict,PMdict):
     Qlist = []
     product = 1
     for compound in Pc:
-      power = (Pc[compound])
-      molarity = (PM[compound])
-      print(molarity, power)
+      power = Pc[compound]
+      molarity = PM[compound]
       value = math.pow(molarity,power)
       Qlist.append(value)
     for value in Qlist:
@@ -2463,6 +2449,96 @@ def computeQ(Rcoe,Pcoe,RMdict,PMdict):
   Q = num/den
   Q = round_to_sig_figs(Q,4)
   return Q
+
+def FixingICE(dictR,dictP,volume):
+  new_dictR = []
+  new_dictP =[]
+  for compound in dictR:
+    if ' g' in dictR[compound]:
+      index = dictR[compound].index(' g')
+      mass = dictR[compound][:index]
+      mass = float(mass)
+      molarity = massToMol(compound,mass,volume)
+      new_dictR[compound] = molarity
+    elif ' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]:
+      index = dictR[compound].index(' mol')
+      moles = dictR[compound][:index]
+      moles = float(moles)
+      molarity = molesToMol(moles,volume)
+      new_dictR[compound] = molarity
+    elif ' M' in dictR[compound] or ' Molarity' in dictR[compound]:
+      index = dictR[compound].index(' M')
+      molarity = dictR[compound][:index]
+      molarity = float(molarity)
+      new_dictR[compound] = molarity
+    else:
+      new_dictR[compound] = float(dictR[compound])
+  for compound in dictP:
+    if ' g' in dictP[compound]:
+      index = dictP[compound].index(' g')
+      mass = dictP[compound][:index]
+      mass = float(mass)
+      molarity = massToMol(compound,mass,volume)
+      new_dictP[compound] = molarity
+    elif ' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]:
+      index = dictP[compound].index(' mol')
+      moles = dictP[compound][:index]
+      moles = float(moles)
+      molarity = molesToMol(moles,volume)
+      new_dictP[compound] = molarity
+    elif ' M' in dictP[compound] or ' Molarity' in dictP[compound]:
+      index = dictP[compound].index(' M')
+      molarity = dictP[compound][:index]
+      molarity = float(molarity)
+      new_dictP[compound] = molarity
+    else:
+      new_dictP[compound] = float(dictP[compound])
+  return new_dictR,new_dictP
+
+
+def FixingBCA(dictR,dictP,volume):
+  new_dictR = []
+  new_dictP =[]
+  for compound in dictR:
+    if ' g' in dictR[compound]:
+      index = dictR[compound].index(' g')
+      mass = dictR[compound][:index]
+      mass = float(mass)
+      moles = massToMoles(compound,mass)
+      new_dictR[compound] = moles
+    elif ' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]:
+      index = dictR[compound].index(' mol')
+      moles = dictR[compound][:index]
+      moles = float(moles)
+      new_dictR[compound] = moles
+    elif ' M' in dictR[compound] or ' Molarity' in dictR[compound]:
+      index = dictR[compound].index(' M')
+      molarity = dictR[compound][:index]
+      molarity = float(molarity)
+      new_dictR[compound] = molarity * volume
+    else:
+      new_dictR[compound] = float(dictR[compound])
+  for compound in dictR:
+    if ' g' in dictP[compound]:
+      index = dictP[compound].index(' g')
+      mass = dictP[compound][:index]
+      mass = float(mass)
+      moles = massToMoles(compound,mass)
+      new_dictP[compound] = moles
+    elif ' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]:
+      index = dictP[compound].index(' mol')
+      moles = dictP[compound][:index]
+      moles = float(moles)
+      new_dictP[compound] = moles
+    elif ' M' in dictP[compound] or ' Molarity' in dictP[compound]:
+      index = dictP[compound].index(' M')
+      molarity = dictP[compound][:index]
+      molarity = float(molarity)
+      new_dictP[compound] = molarity * volume
+    else:
+      new_dictP[compound] = float(dictP[compound])
+  return new_dictR,new_dictP
+
 def ICE(reaction,K,RM,PM):
   '''
   Include PMdict and RMdict in input
@@ -2550,9 +2626,6 @@ def ICE(reaction,K,RM,PM):
     finalR = RM
     return finalR,finalP, 'NO REACTION'
   
-
-#BCA
-
 def completion_final_concentrations(RM, PM, R, P):
     # Step 1: Find the limiting reactant
     reactant_amounts = {key: RM[key] / R[key] for key in R}
@@ -2582,14 +2655,13 @@ def completion_final_concentrations(RM, PM, R, P):
 
 def find_ending_moles(Rm, Pm, R, P):
     # Calculate the initial mole ratios for reactants
-    ratios = {reactant: float(Rm[reactant]) / coeff for reactant, coeff in R.items()}
+    ratios = {reactant: Rm[reactant] / coeff for reactant, coeff in R.items()}
 
     # Identify the limiting reactant (reactant with the smallest ratio)
     limiting_reactant = min(ratios, key=ratios.get)
     limiting_ratio = ratios[limiting_reactant]
 
     # Calculate the moles of products formed based on the limiting reactant
-    print(R, P, Pm, Rm)
     for product, coeff in P.items():
         Pm[product] = Pm.get(product, 0) + coeff * limiting_ratio
 
@@ -2609,101 +2681,6 @@ def BCA(reaction,RM,PM):
   for products in final_P:
     final_P[products] = round_to_sig_figs(final_P[products],3)
   return final_R,final_P
-
-def FixingICE(dictR,dictP,volume):
-  new_dictR = {}
-  new_dictP ={}
-  for compound in dictR:
-    if ' g' in dictR[compound]:
-      index = dictR[compound].index(' g')
-      mass = dictR[compound][:index]
-      mass = float(mass)
-      molarity = massToMol(compound,mass,volume)
-      new_dictR[compound] = molarity
-    elif ' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]:
-      index = dictR[compound].index(' mol')
-      moles = dictR[compound][:index]
-      moles = float(moles)
-      molarity = molesToMol(moles,volume)
-      new_dictR[compound] = molarity
-    elif ' M' in dictR[compound] or ' Molarity' in dictR[compound]:
-      index = dictR[compound].index(' M')
-      molarity = dictR[compound][:index]
-      molarity = float(molarity)
-      new_dictR[compound] = molarity
-    else:
-      new_dictR[compound] = float(dictR[compound])
-  for compound in dictP:
-    if ' g' in dictP[compound]:
-      index = dictP[compound].index(' g')
-      mass = dictP[compound][:index]
-      mass = float(mass)
-      molarity = massToMol(compound,mass,volume)
-      new_dictP[compound] = molarity
-    elif ' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]:
-      index = dictP[compound].index(' mol')
-      moles = dictP[compound][:index]
-      moles = float(moles)
-      molarity = molesToMol(moles,volume)
-      new_dictP[compound] = molarity
-    elif ' M' in dictP[compound] or ' Molarity' in dictP[compound]:
-      index = dictP[compound].index(' M')
-      molarity = dictP[compound][:index]
-      molarity = float(molarity)
-      new_dictP[compound] = molarity
-    else:
-      new_dictP[compound] = float(dictP[compound])
-  return new_dictR,new_dictP
-
-def FixingBCA(dictR,dictP,volume):
-  new_dictR = {}
-  new_dictP ={}
-  for compound in dictR:
-    if ' g' in dictR[compound]:
-      index = dictR[compound].index(' g')
-      mass = dictR[compound][:index]
-      mass = float(mass)
-      moles = massToMoles(compound,mass)
-      new_dictR[compound] = moles
-    elif ' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]:
-      index = dictR[compound].index(' mol')
-      moles = dictR[compound][:index]
-      moles = float(moles)
-      new_dictR[compound] = moles
-    elif ' M' in dictR[compound] or ' Molarity' in dictR[compound]:
-      index = dictR[compound].index(' M')
-      molarity = dictR[compound][:index]
-      molarity = float(molarity)
-      new_dictR[compound] = molarity * volume
-    else:
-      new_dictR[compound] = float(dictR[compound])
-  for compound in dictP:
-    if ' g' in dictP[compound]:
-      index = dictP[compound].index(' g')
-      mass = dictP[compound][:index]
-      mass = float(mass)
-      moles = massToMoles(compound,mass)
-      new_dictP[compound] = moles
-    elif ' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]:
-      index = dictP[compound].index(' mol')
-      moles = dictP[compound][:index]
-      moles = float(moles)
-      new_dictP[compound] = moles
-    elif ' M' in dictP[compound] or ' Molarity' in dictP[compound]:
-      index = dictP[compound].index(' M')
-      molarity = dictP[compound][:index]
-      molarity = float(molarity)
-      new_dictP[compound] = molarity * volume
-    else:
-      new_dictP[compound] = float(dictP[compound])
-  return new_dictR,new_dictP
-
-def parse_to_numbers(data_dict):
-    """
-    Convert all values in the dictionary to floats.
-    """
-    return {key: float(value) for key, value in data_dict.items()}
-
 #ICE and BCA loading
 
 @app.route('/ice-calculator', methods=['POST'])
@@ -2747,3 +2724,4 @@ def bca_loading():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
