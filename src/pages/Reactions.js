@@ -37,8 +37,8 @@ const Reactions = () => {
       console.log("Backend Response:", response.data.result);
       console.log("Balanced equation:", balancedEq);
       console.log("Backend balanced equation:", backendBalancedEq);
-      
       setError(''); // Clear the error if successful
+      
       await getDeltaCalculations(equation);
       await splitReaction(equation);
     } catch (error) {
