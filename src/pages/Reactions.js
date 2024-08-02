@@ -8,6 +8,7 @@ const Reactions = () => {
   const [showResults, setShowResults] = useState(false);
   const [K, setK] = useState(0);
   const [balancedEq, setBalancedEq] = useState('');
+  const [backendBalancedEq, setBackendBalancedEq] = useState('');
   const [equation, setEquation] = useState('');
   const [isRedox, setIsRedox] = useState(false);
   const [redoxType, setRedoxType] = useState('');
@@ -28,8 +29,10 @@ const Reactions = () => {
   const balanceEquation = async (equation) => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/balance-equation', { reaction: equation });
-      const formattedBalancedEquation = formatEquation(response.data.result);
+      const unformattedBalancedEquation = response.data.result;
+      const formattedBalancedEquation = formatEquation(unformattedBalancedEquation);
       setBalancedEq(formattedBalancedEquation);
+      setBackendBalancedEq(unformattedBalancedEquation);
       setError('');
       await getDeltaCalculations(equation);
       await splitReaction(equation);
@@ -59,14 +62,14 @@ const Reactions = () => {
     }
   };
 
-  const getDeltaCalculations = async (balancedEq) => {
-    if (!balancedEq.includes('(s)') && !balancedEq.includes('(l)') && !balancedEq.includes('(g)') && !balancedEq.includes('(aq)')) {
+  const getDeltaCalculations = async (backendBalancedEq) => {
+    if (!backendBalancedEq.includes('(s)') && !backendBalancedEq.includes('(l)') && !backendBalancedEq.includes('(g)') && !backendBalancedEq.includes('(aq)')) {
       setError('No states given, cannot calculate dG, dH, dS');
       return;
     }
 
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/delta-calculations', { reaction: balancedEq });
+      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/delta-calculations', { reaction: backendBalancedEq });
       const { delta_g0, delta_s0, delta_h0, K } = response.data;
       setDeltaG(delta_g0);
       setDeltaS(delta_s0);
@@ -87,9 +90,11 @@ const Reactions = () => {
     e.preventDefault();
     if (equation.includes('^')) {
       setBalancedEq('Not applicable');
+      setBackendBalancedEq('Not applicable');
       setShowResults(true);
     } else {
       setBalancedEq('');
+      setBackendBalancedEq('');
       setDeltaG(0);
       setDeltaH(0);
       setDeltaS(0);
@@ -146,7 +151,7 @@ const Reactions = () => {
   const handleIceCalculation = async () => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/ice-calculator', {
-        reaction: balancedEq,
+        reaction: backendBalancedEq,
         RM: reactantValues,
         PM: productValues,
         volume: volume,
@@ -163,7 +168,7 @@ const Reactions = () => {
   const handleBcaCalculation = async () => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/bca-calculator', {
-        reaction: balancedEq,
+        reaction: backendBalancedEq,
         RM: reactantValues,
         PM: productValues,
         volume: volume,
