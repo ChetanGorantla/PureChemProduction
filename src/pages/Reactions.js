@@ -65,7 +65,7 @@ const Reactions = () => {
   };
 
   const getDeltaCalculations = async (backendBalancedEq) => {
-    console.log(backendBalancedEq);
+    console.log("BALANCED EQ: ", backendBalancedEq);
     if (!backendBalancedEq.includes('(s)') && !backendBalancedEq.includes('(l)') && !backendBalancedEq.includes('(g)') && !backendBalancedEq.includes('(aq)')) {
       setError('No states given, cannot calculate dG, dH, dS');
       return;
