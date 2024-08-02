@@ -29,10 +29,15 @@ const Reactions = () => {
   const balanceEquation = async (equation) => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/balance-equation', { reaction: equation });
+      
       const unformattedBalancedEquation = response.data.result;
       const formattedBalancedEquation = formatEquation(unformattedBalancedEquation);
       setBalancedEq(formattedBalancedEquation);
       setBackendBalancedEq(unformattedBalancedEquation);
+      console.log("Backend Response:", response.data.result);
+      console.log("Balanced equation:", balancedEq);
+      console.log("Backend balanced equation:", backendBalancedEq);
+      
       setError(''); // Clear the error if successful
       await getDeltaCalculations(equation);
       await splitReaction(equation);
