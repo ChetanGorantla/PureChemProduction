@@ -156,6 +156,7 @@ const Reactions = () => {
         PM: productValues,
         volume: volume,
       });
+      console.log(backendBalancedEq);
       setIceResults({ R: response.data.R, P: response.data.P });
       setIceString(response.data.string);
       setBcaResults({});
@@ -173,6 +174,7 @@ const Reactions = () => {
         PM: productValues,
         volume: volume,
       });
+      console.log(backendBalancedEq);
       setBcaResults({
         remaining_reactants: response.data.remaining_reactants,
         final_products: response.data.final_products,
