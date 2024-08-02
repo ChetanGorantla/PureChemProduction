@@ -33,7 +33,7 @@ const Reactions = () => {
       const formattedBalancedEquation = formatEquation(unformattedBalancedEquation);
       setBalancedEq(formattedBalancedEquation);
       setBackendBalancedEq(unformattedBalancedEquation);
-      setError('');
+      setError(''); // Clear the error if successful
       await getDeltaCalculations(equation);
       await splitReaction(equation);
     } catch (error) {
@@ -41,6 +41,7 @@ const Reactions = () => {
       setError(error.response?.data?.error || 'An error occurred while balancing the equation.');
     }
   };
+  
 
   const cleanUpStates = (list) => {
     return list.map(item => item.replace(/\([a-z]+\)/g, ''));
@@ -56,6 +57,7 @@ const Reactions = () => {
       const initialProductValues = response.data.products.reduce((acc, curr) => ({ ...acc, [cleanUpStates([curr])[0]]: 0 }), {});
       setReactantValues(initialReactantValues);
       setProductValues(initialProductValues);
+      setError('');
     } catch (error) {
       console.error('Error splitting reaction', error);
       setError(error.response?.data?.error || 'An error occurred while splitting the reaction.');
@@ -75,6 +77,7 @@ const Reactions = () => {
       setDeltaS(delta_s0);
       setDeltaH(delta_h0);
       setK(K);
+      setError('');
       console.log("retrieved delta calculations")
     } catch (error) {
       console.error('Error getting delta calculations', error);
@@ -88,6 +91,9 @@ const Reactions = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Reset error message before processing
+    setError('');
+    
     if (equation.includes('^')) {
       setBalancedEq('Not applicable');
       setBackendBalancedEq('Not applicable');
@@ -99,12 +105,12 @@ const Reactions = () => {
       setDeltaH(0);
       setDeltaS(0);
       setK(0);
-      setError('');
       const cleanedEquation = cleanUpTags(equation.replace(/<sub>|<\/sub>|<sup>|<\/sup>/g, ''));
       balanceEquation(cleanedEquation);
       setShowResults(true);
     }
   };
+  
 
   const formatEquation = (input) => {
     const parts = input.split(/(\s+|\+|=|->|<-)/);
@@ -159,6 +165,7 @@ const Reactions = () => {
       console.log(backendBalancedEq);
       setIceResults({ R: response.data.R, P: response.data.P });
       setIceString(response.data.string);
+      setError('');
       setBcaResults({});
     } catch (error) {
       console.error('Error calculating ICE table', error);
@@ -179,6 +186,7 @@ const Reactions = () => {
         remaining_reactants: response.data.remaining_reactants,
         final_products: response.data.final_products,
       });
+      setError('');
       setIceResults({});
     } catch (error) {
       console.error('Error calculating BCA table', error);

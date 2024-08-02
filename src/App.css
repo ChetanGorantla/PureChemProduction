@@ -212,7 +212,7 @@ div > div {
 .equation-input-and-button input {
   padding: 15px;
   font-size: 1.5rem;
-  width: 100%; /* Full width on small screens */
+  width: 150%; /* Full width on small screens */
   max-width: 525px; /* Limit max width */
   min-width: 350px;
   border: 2px solid #3a6a4a;
