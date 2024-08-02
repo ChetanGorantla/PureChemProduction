@@ -2451,6 +2451,7 @@ def computeQ(Rcoe,Pcoe,RMdict,PMdict):
   return Q
 
 def FixingICE(dictR,dictP,volume):
+  print(dictR, dictP)
   new_dictR = {}
   new_dictP ={}
   for compound in dictR:
@@ -2497,6 +2498,7 @@ def FixingICE(dictR,dictP,volume):
 
 
 def FixingBCA(dictR,dictP,volume):
+  print(dictR, dictP)
   new_dictR = {}
   new_dictP ={}
   for compound in dictR:
