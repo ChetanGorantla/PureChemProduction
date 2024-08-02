@@ -2450,96 +2450,101 @@ def computeQ(Rcoe,Pcoe,RMdict,PMdict):
   Q = round_to_sig_figs(Q,4)
   return Q
 
-def FixingICE(dictR,dictP,volume):
-  print(dictR, dictP)
-  new_dictR = {}
-  new_dictP ={}
-  for compound in dictR:
-    if ' g' in dictR[compound]:
-      index = dictR[compound].index(' g')
-      mass = dictR[compound][:index]
-      mass = float(mass)
-      molarity = massToMol(compound,mass,volume)
-      new_dictR[compound] = molarity
-    elif ' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]:
-      index = dictR[compound].index(' mol')
-      moles = dictR[compound][:index]
-      moles = float(moles)
-      molarity = molesToMol(moles,volume)
-      new_dictR[compound] = molarity
-    elif ' M' in dictR[compound] or ' Molarity' in dictR[compound]:
-      index = dictR[compound].index(' M')
-      molarity = dictR[compound][:index]
-      molarity = float(molarity)
-      new_dictR[compound] = molarity
-    else:
-      new_dictR[compound] = float(dictR[compound])
-  for compound in dictP:
-    if ' g' in dictP[compound]:
-      index = dictP[compound].index(' g')
-      mass = dictP[compound][:index]
-      mass = float(mass)
-      molarity = massToMol(compound,mass,volume)
-      new_dictP[compound] = molarity
-    elif ' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]:
-      index = dictP[compound].index(' mol')
-      moles = dictP[compound][:index]
-      moles = float(moles)
-      molarity = molesToMol(moles,volume)
-      new_dictP[compound] = molarity
-    elif ' M' in dictP[compound] or ' Molarity' in dictP[compound]:
-      index = dictP[compound].index(' M')
-      molarity = dictP[compound][:index]
-      molarity = float(molarity)
-      new_dictP[compound] = molarity
-    else:
-      new_dictP[compound] = float(dictP[compound])
-  return new_dictR,new_dictP
+def FixingICE(dictR, dictP, volume):
+    new_dictR = {}
+    new_dictP = {}
+    for compound in dictR:
+        if isinstance(dictR[compound], str) and ' g' in dictR[compound]:
+            index = dictR[compound].index(' g')
+            mass = dictR[compound][:index]
+            mass = float(mass)
+            molarity = massToMol(compound, mass, volume)
+            new_dictR[compound] = molarity
+        elif isinstance(dictR[compound], str) and (' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]):
+            index = dictR[compound].index(' mol')
+            moles = dictR[compound][:index]
+            moles = float(moles)
+            molarity = molesToMol(moles, volume)
+            new_dictR[compound] = molarity
+        elif isinstance(dictR[compound], str) and (' M' in dictR[compound] or ' Molarity' in dictR[compound]):
+            index = dictR[compound].index(' M')
+            molarity = dictR[compound][:index]
+            molarity = float(molarity)
+            new_dictR[compound] = molarity
+        else:
+            new_dictR[compound] = float(dictR[compound])
+
+    for compound in dictP:
+        if isinstance(dictP[compound], str) and ' g' in dictP[compound]:
+            index = dictP[compound].index(' g')
+            mass = dictP[compound][:index]
+            mass = float(mass)
+            molarity = massToMol(compound, mass, volume)
+            new_dictP[compound] = molarity
+        elif isinstance(dictP[compound], str) and (' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]):
+            index = dictP[compound].index(' mol')
+            moles = dictP[compound][:index]
+            moles = float(moles)
+            molarity = molesToMol(moles, volume)
+            new_dictP[compound] = molarity
+        elif isinstance(dictP[compound], str) and (' M' in dictP[compound] or ' Molarity' in dictP[compound]):
+            index = dictP[compound].index(' M')
+            molarity = dictP[compound][:index]
+            molarity = float(molarity)
+            new_dictP[compound] = molarity
+        else:
+            new_dictP[compound] = float(dictP[compound])
+
+    return new_dictR, new_dictP
 
 
-def FixingBCA(dictR,dictP,volume):
-  print(dictR, dictP)
-  new_dictR = {}
-  new_dictP ={}
-  for compound in dictR:
-    if ' g' in dictR[compound]:
-      index = dictR[compound].index(' g')
-      mass = dictR[compound][:index]
-      mass = float(mass)
-      moles = massToMoles(compound,mass)
-      new_dictR[compound] = moles
-    elif ' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]:
-      index = dictR[compound].index(' mol')
-      moles = dictR[compound][:index]
-      moles = float(moles)
-      new_dictR[compound] = moles
-    elif ' M' in dictR[compound] or ' Molarity' in dictR[compound]:
-      index = dictR[compound].index(' M')
-      molarity = dictR[compound][:index]
-      molarity = float(molarity)
-      new_dictR[compound] = molarity * volume
-    else:
-      new_dictR[compound] = float(dictR[compound])
-  for compound in dictR:
-    if ' g' in dictP[compound]:
-      index = dictP[compound].index(' g')
-      mass = dictP[compound][:index]
-      mass = float(mass)
-      moles = massToMoles(compound,mass)
-      new_dictP[compound] = moles
-    elif ' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]:
-      index = dictP[compound].index(' mol')
-      moles = dictP[compound][:index]
-      moles = float(moles)
-      new_dictP[compound] = moles
-    elif ' M' in dictP[compound] or ' Molarity' in dictP[compound]:
-      index = dictP[compound].index(' M')
-      molarity = dictP[compound][:index]
-      molarity = float(molarity)
-      new_dictP[compound] = molarity * volume
-    else:
-      new_dictP[compound] = float(dictP[compound])
-  return new_dictR,new_dictP
+
+def FixingBCA(dictR, dictP, volume):
+    new_dictR = {}
+    new_dictP = {}
+
+    for compound in dictR:
+        if isinstance(dictR[compound], str) and ' g' in dictR[compound]:
+            index = dictR[compound].index(' g')
+            mass = dictR[compound][:index]
+            mass = float(mass)
+            moles = massToMoles(compound, mass)
+            new_dictR[compound] = moles
+        elif isinstance(dictR[compound], str) and (' moles' in dictR[compound] or ' mole' in dictR[compound] or ' mol' in dictR[compound]):
+            index = dictR[compound].index(' mol')
+            moles = dictR[compound][:index]
+            moles = float(moles)
+            new_dictR[compound] = moles
+        elif isinstance(dictR[compound], str) and (' M' in dictR[compound] or ' Molarity' in dictR[compound]):
+            index = dictR[compound].index(' M')
+            molarity = dictR[compound][:index]
+            molarity = float(molarity)
+            new_dictR[compound] = molarity * volume
+        else:
+            new_dictR[compound] = float(dictR[compound])
+
+    for compound in dictP:
+        if isinstance(dictP[compound], str) and ' g' in dictP[compound]:
+            index = dictP[compound].index(' g')
+            mass = dictP[compound][:index]
+            mass = float(mass)
+            moles = massToMoles(compound, mass)
+            new_dictP[compound] = moles
+        elif isinstance(dictP[compound], str) and (' moles' in dictP[compound] or ' mole' in dictP[compound] or ' mol' in dictP[compound]):
+            index = dictP[compound].index(' mol')
+            moles = dictP[compound][:index]
+            moles = float(moles)
+            new_dictP[compound] = moles
+        elif isinstance(dictP[compound], str) and (' M' in dictP[compound] or ' Molarity' in dictP[compound]):
+            index = dictP[compound].index(' M')
+            molarity = dictP[compound][:index]
+            molarity = float(molarity)
+            new_dictP[compound] = molarity * volume
+        else:
+            new_dictP[compound] = float(dictP[compound])
+
+    return new_dictR, new_dictP
+
 
 def ICE(reaction,K,RM,PM):
   '''
