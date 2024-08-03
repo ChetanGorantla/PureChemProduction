@@ -26,6 +26,12 @@ const Reactions = () => {
   const [bcaResults, setBcaResults] = useState({});
   const [iceString, setIceString] = useState('');
 
+  useEffect(() => {
+    if (backendBalancedEq) {
+      getDeltaCalculations(backendBalancedEq);
+    }
+  }, [backendBalancedEq]);
+
   const balanceEquation = async (equation) => {
     try {
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/balance-equation', { reaction: equation });
