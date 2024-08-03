@@ -80,7 +80,12 @@ const Reactions = () => {
       setDeltaG(delta_g0);
       setDeltaS(delta_s0);
       setDeltaH(delta_h0);
-      setK(K);
+      if (K === 0){
+        setK(1)
+      }else{
+        setK(K);
+      }
+      
     } catch (error) {
       console.error('Error getting delta calculations', error);
       setError(error.response?.data?.error || 'An error occurred while getting delta calculations.');
@@ -105,7 +110,7 @@ const Reactions = () => {
       setDeltaG(0);
       setDeltaH(0);
       setDeltaS(0);
-      setK(0);
+      setK(1);
       const cleanedEquation = cleanUpTags(equation.replace(/<sub>|<\/sub>|<sup>|<\/sup>/g, ''));
       balanceEquation(cleanedEquation);
       setShowResults(true);
