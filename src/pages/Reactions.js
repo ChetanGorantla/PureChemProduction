@@ -232,6 +232,7 @@ const Reactions = () => {
 
       // Extract the last redox equation and set it for delta calculations
       const lastRedoxEquation = response.data.new_reaction;
+      console.log(lastRedoxEquation);
       setBackendBalancedEq(lastRedoxEquation);
       setEquation(lastRedoxEquation);
       
