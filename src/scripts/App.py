@@ -2250,8 +2250,8 @@ def parse_reaction_state(reaction):
 def dictionarypar(reaction):
     # Split the reaction into reactants and products
     reactants, products = reaction.split('->')
-    reactants = reactants.split('+')
-    products = products.split('+')
+    reactants = reactants.split(' + ')
+    products = products.split(' + ')
 
     # Helper function to parse each part
     def parse_compounds(compound_list):
