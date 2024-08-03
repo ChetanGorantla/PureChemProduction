@@ -6,7 +6,7 @@ const Reactions = () => {
   let [hashMap, setHashMap] = useState({});
   const [selected, setSelected] = useState('');
   const [showResults, setShowResults] = useState(false);
-  const [K, setK] = useState(0);
+  const [K, setK] = useState(1);
   const [balancedEq, setBalancedEq] = useState('');
   const [backendBalancedEq, setBackendBalancedEq] = useState('');
   const [equation, setEquation] = useState('');
@@ -222,6 +222,10 @@ const Reactions = () => {
       const endpoint = type === 'Acid' ? 'acid-redox-equations' : 'base-redox-equations';
       const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/${endpoint}`, { reaction: equation });
       setRedoxResults(response.data);
+
+      // Extract the last redox equation and set it for delta calculations
+      const lastRedoxEquation = response.data.new_reaction;
+      setBackendBalancedEq(lastRedoxEquation);
       
     } catch (error) {
       console.error(`Error getting ${type.toLowerCase()} redox equations`, error);
