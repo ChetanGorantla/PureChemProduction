@@ -58,9 +58,9 @@ const Reactions = () => {
     return list.map(item => item.replace(/\([a-z]+\)/g, ''));
   };
 
-  const splitReaction = async (equation) => {
+  const splitReaction = async (backendBalancedEq) => {
     try {
-      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/split-reaction', { reaction: equation });
+      const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/split-reaction', { reaction: backendBalancedEq });
       setReactantList(cleanUpStates(response.data.reactants));
       setProductList(cleanUpStates(response.data.products));
 
@@ -234,7 +234,7 @@ const Reactions = () => {
       const lastRedoxEquation = response.data.new_reaction;
       console.log(lastRedoxEquation);
       setBackendBalancedEq(lastRedoxEquation);
-      setEquation(lastRedoxEquation);
+      
       
     } catch (error) {
       console.error(`Error getting ${type.toLowerCase()} redox equations`, error);
