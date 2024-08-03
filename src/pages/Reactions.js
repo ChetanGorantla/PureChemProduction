@@ -228,6 +228,7 @@ const Reactions = () => {
       const endpoint = type === 'Acid' ? 'acid-redox-equations' : 'base-redox-equations';
       const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/${endpoint}`, { reaction: equation });
       setRedoxResults(response.data);
+      setEquation(response.data);
 
       // Extract the last redox equation and set it for delta calculations
       const lastRedoxEquation = response.data.new_reaction;
