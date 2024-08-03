@@ -1953,7 +1953,7 @@ def base_redox():
     
     reaction = data.get('reaction')
     
-    first,second,new_reaction = acid_reaction(reaction)
+    first,second,new_reaction = base_reaction(reaction)
     
     print(f"Returning result: {first, second, new_reaction}")
     return jsonify({'first': first, 'second': second, 'new_reaction': new_reaction})
@@ -1962,7 +1962,7 @@ def base_redox():
 def acid_redox():
     data = request.json
     reaction = data.get('reaction')
-    first,second,new_reaction = base_reaction(reaction)
+    first,second,new_reaction = acid_reaction(reaction)
     print(f"Returning result: {first, second, new_reaction}")
     return jsonify({'first': first, 'second': second, 'new_reaction': new_reaction})
 
