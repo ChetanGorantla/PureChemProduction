@@ -2081,6 +2081,8 @@ def delta_calc():
         K = -delta_g0 * 1000 / (8.314 * 298)
         K = math.pow(math.e, K)
         K = round_to_sig_figs_thermo(K, 4)
+        if K == 0:
+            K == 1
         
         # Round values to 2 decimal places
         delta_g0 = round(delta_g0, 2)
@@ -2100,7 +2102,7 @@ def delta_calc():
         if 'delta_h0' not in locals():
             delta_h0 = 0.0
         if 'K' not in locals():
-            K = 0.0
+            K = 1.0
         
         
         
