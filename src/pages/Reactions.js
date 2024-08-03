@@ -99,18 +99,31 @@ const Reactions = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
+  
+    // Reset all relevant states when a new equation is submitted
+    setBalancedEq('');
+    setBackendBalancedEq('');
+    setDeltaG(0);
+    setDeltaH(0);
+    setDeltaS(0);
+    setK(1);
+    setReactantList([]);
+    setProductList([]);
+    setReactantValues({});
+    setProductValues({});
+    setIceResults({});
+    setBcaResults({});
+    setIceString('');
+    setRedoxResults({});
+    setIsRedox(false);
+    setRedoxType('');
     
+    // Handle the new equation
     if (equation.includes('^')) {
       setBalancedEq('Not applicable');
       setBackendBalancedEq('Not applicable');
       setShowResults(true);
     } else {
-      setBalancedEq('');
-      setBackendBalancedEq('');
-      setDeltaG(0);
-      setDeltaH(0);
-      setDeltaS(0);
-      setK(1);
       const cleanedEquation = cleanUpTags(equation.replace(/<sub>|<\/sub>|<sup>|<\/sup>/g, ''));
       balanceEquation(cleanedEquation);
       setShowResults(true);
