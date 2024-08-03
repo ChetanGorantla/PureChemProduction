@@ -106,6 +106,8 @@ const Reactions = () => {
     setDeltaG(0);
     setDeltaH(0);
     setDeltaS(0);
+    setVolume(1);
+    setError("");
     setK(1);
     setReactantList([]);
     setProductList([]);
