@@ -27,12 +27,9 @@ const Reactions = () => {
   const [iceString, setIceString] = useState('');
 
   useEffect(() => {
-    if (backendBalancedEq) {
+    if (backendBalancedEq && backendBalancedEq !== "Not applicable") {
       getDeltaCalculations(backendBalancedEq);
-      if (backendBalancedEq !== "Not applicable"){
-        splitReaction(backendBalancedEq);
-      }
-      
+      splitReaction(backendBalancedEq);
     }
   }, [backendBalancedEq]);
 
@@ -44,19 +41,11 @@ const Reactions = () => {
       const formattedBalancedEquation = formatEquation(unformattedBalancedEquation);
       setBalancedEq(formattedBalancedEquation);
       setBackendBalancedEq(unformattedBalancedEquation);
-      
-      await splitReaction(equation);
     } catch (error) {
       console.error('Error balancing equation', error);
       setError(error.response?.data?.error || 'An error occurred while balancing the equation.');
     }
   };
-
-  useEffect(() => {
-    if (backendBalancedEq) {
-      getDeltaCalculations(backendBalancedEq);
-    }
-  }, [backendBalancedEq]);
 
   const cleanUpStates = (list) => {
     return list.map(item => item.replace(/\([a-z]+\)/g, ''));
@@ -64,17 +53,14 @@ const Reactions = () => {
 
   const splitReaction = async (backendBalancedEq) => {
     try {
-      console.log("Splitting");
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/split-reaction', { reaction: backendBalancedEq });
       setReactantList(cleanUpStates(response.data.reactants));
       setProductList(cleanUpStates(response.data.products));
-      console.log("Reactants: ", reactantList);
-      console.log("Products: ", productList);
+
       const initialReactantValues = response.data.reactants.reduce((acc, curr) => ({ ...acc, [cleanUpStates([curr])[0]]: 0 }), {});
       const initialProductValues = response.data.products.reduce((acc, curr) => ({ ...acc, [cleanUpStates([curr])[0]]: 0 }), {});
       setReactantValues(initialReactantValues);
       setProductValues(initialProductValues);
-      
     } catch (error) {
       console.error('Error splitting reaction', error);
       setError(error.response?.data?.error || 'An error occurred while splitting the reaction.');
@@ -82,7 +68,6 @@ const Reactions = () => {
   };
 
   const getDeltaCalculations = async (backendBalancedEq) => {
-    console.log("BALANCED EQ: ", backendBalancedEq);
     if (!backendBalancedEq.includes('(s)') && !backendBalancedEq.includes('(l)') && !backendBalancedEq.includes('(g)') && !backendBalancedEq.includes('(aq)')) {
       setError('No states given, cannot calculate dG, dH, dS');
       return;
@@ -95,8 +80,6 @@ const Reactions = () => {
       setDeltaS(delta_s0);
       setDeltaH(delta_h0);
       setK(K);
-      
-      console.log("retrieved delta calculations")
     } catch (error) {
       console.error('Error getting delta calculations', error);
       setError(error.response?.data?.error || 'An error occurred while getting delta calculations.');
@@ -162,12 +145,10 @@ const Reactions = () => {
 
   const handleReactantChange = (e, item) => {
     setReactantValues({ ...reactantValues, [item]: e.target.value });
-    console.log(reactantValues);
   };
 
   const handleProductChange = (e, item) => {
     setProductValues({ ...productValues, [item]: e.target.value });
-    console.log(productValues);
   };
 
   const handleIceCalculation = async () => {
@@ -179,10 +160,8 @@ const Reactions = () => {
         volume: volume,
         K: K
       });
-      console.log(backendBalancedEq);
       setIceResults({ R: response.data.R, P: response.data.P });
       setIceString(response.data.string);
-      
       setBcaResults({});
     } catch (error) {
       console.error('Error calculating ICE table', error);
@@ -198,12 +177,10 @@ const Reactions = () => {
         PM: productValues,
         volume: volume,
       });
-      console.log(backendBalancedEq);
       setBcaResults({
         remaining_reactants: response.data.remaining_reactants,
         final_products: response.data.final_products,
       });
-      
       setIceResults({});
     } catch (error) {
       console.error('Error calculating BCA table', error);
@@ -234,14 +211,10 @@ const Reactions = () => {
       const endpoint = type === 'Acid' ? 'acid-redox-equations' : 'base-redox-equations';
       const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/${endpoint}`, { reaction: equation });
       setRedoxResults(response.data);
-      
 
       // Extract the last redox equation and set it for delta calculations
       const lastRedoxEquation = response.data.new_reaction;
-      console.log(lastRedoxEquation);
       setBackendBalancedEq(lastRedoxEquation);
-      
-      
     } catch (error) {
       console.error(`Error getting ${type.toLowerCase()} redox equations`, error);
       setError(error.response?.data?.error || `An error occurred while getting ${type.toLowerCase()} redox equations.`);
@@ -265,7 +238,6 @@ const Reactions = () => {
                 placeholder="Enter any chemistry equation and we'll balance it!"
               />
             </form>
-            
           </nav>
         </div>
         <button onClick={handleSubmit} style={{ borderRadius: 10 }}>Balance Equation</button>
@@ -345,7 +317,6 @@ const Reactions = () => {
               ))}
             </div>
           </div>
-          
         </div>
         {selected === 'ICE' && iceString && (
           <div>
