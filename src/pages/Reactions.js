@@ -60,10 +60,12 @@ const Reactions = () => {
 
   const splitReaction = async (backendBalancedEq) => {
     try {
+      console.log("Splitting");
       const response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/split-reaction', { reaction: backendBalancedEq });
       setReactantList(cleanUpStates(response.data.reactants));
       setProductList(cleanUpStates(response.data.products));
-
+      console.log("Reactants: ", reactantList);
+      console.log("Products: ", productList);
       const initialReactantValues = response.data.reactants.reduce((acc, curr) => ({ ...acc, [cleanUpStates([curr])[0]]: 0 }), {});
       const initialProductValues = response.data.products.reduce((acc, curr) => ({ ...acc, [cleanUpStates([curr])[0]]: 0 }), {});
       setReactantValues(initialReactantValues);
