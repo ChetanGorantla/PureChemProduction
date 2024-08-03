@@ -29,7 +29,10 @@ const Reactions = () => {
   useEffect(() => {
     if (backendBalancedEq) {
       getDeltaCalculations(backendBalancedEq);
-      splitReaction(backendBalancedEq);
+      if (backendBalancedEq !== "Not applicable"){
+        splitReaction(backendBalancedEq);
+      }
+      
     }
   }, [backendBalancedEq]);
 
