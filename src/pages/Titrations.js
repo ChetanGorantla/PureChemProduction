@@ -116,7 +116,7 @@ const Titrations = () => {
 
   const renderPHForm = () => {
     const isStrongAcidBaseTitration = selectedOption === 'titrating strong acid with strong base' || selectedOption === 'titrating strong base with strong acid';
-    const isAcidBaseTitration = selectedOption === 'Titrating weak acid with strong base' || selectedOption === 'titrating strong acid with strong base';
+    const isAcidBaseTitration = selectedOption === 'titrating weak acid with strong base' || selectedOption === 'titrating weak base with strong acid';
 
     return (
       <div className="form-container">
@@ -179,6 +179,7 @@ const Titrations = () => {
         </div>
       </div>
     );
+
   };
 
   const renderMolarityForm = () => {
