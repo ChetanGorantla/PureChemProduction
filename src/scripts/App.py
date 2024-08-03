@@ -2419,6 +2419,7 @@ def molesToMol(moles,volume):
   return moles/volume
 def computeQ(Rcoe,Pcoe,RMdict,PMdict):
   def computeden(Rc,RM):
+    
     Qlist = []
     product = 1
     for compound in Rc:

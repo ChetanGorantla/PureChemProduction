@@ -48,8 +48,9 @@ const Reactions = () => {
   };
 
   const cleanUpStates = (list) => {
-    return list.map(item => item.replace(/\([a-z]+\)/g, ''));
+    return list.map(item => item.replace(/\([a-zA-Z]+\)/g, ''));
   };
+  
 
   const splitReaction = async (backendBalancedEq) => {
     try {
