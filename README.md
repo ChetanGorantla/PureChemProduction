@@ -1,4 +1,4 @@
-# [PureChem](purechem.vercel.app)
+# [PureChem](https://purechem.vercel.app)
 
 ![PureChem Logo](https://cdn-icons-png.flaticon.com/512/8758/8758581.png)
 
