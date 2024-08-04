@@ -1,11 +1,17 @@
 body {
-  font-family: 'Comic Sans';
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #e0efe6; /* Light green background */
   font-size: 1rem; /* Use rem units to scale based on user settings */
 }
+
+
+
 
 header {
   background-color: #4e8a62; /* Medium dark green */
