@@ -1,4 +1,4 @@
-<h1>[PureChem](purechem.vercel.app)</h1>
+#[PureChem](purechem.vercel.app)
 <h3>Hi! I'm Chetan Gorantla, one of the three devs (me, Cosmo Wu, and Sidharth Duttala) that made this website.<h3>
 <p>PureChem is a website to help students prepare for AP Chemistry and USNCO. </p>
 <p>Features of this website include:</p>
