@@ -120,7 +120,11 @@ const Titrations = () => {
     const isStrongAcidBaseTitration = selectedOption.includes('titrating strong');
   
     return (
+      
       <div className="form-container">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
         <div className="form-group">
           <label>
             {isAcidWithBaseTitration ? 'Ka' : 'Kb'}:
@@ -185,6 +189,9 @@ const Titrations = () => {
   const renderMolarityForm = () => {
     return (
       <div className="form-container">
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
         <div className="form-group">
           <label>
             Select Initial Concentration:
@@ -234,6 +241,9 @@ const Titrations = () => {
 
   return (
     <div>
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
       <Navigation />
       <div className="center-header-flex">
         <div className="molarity-button-container">
