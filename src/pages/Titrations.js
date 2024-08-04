@@ -115,20 +115,21 @@ const Titrations = () => {
 
 
   const renderPHForm = () => {
-    const isStrongAcidBaseTitration = selectedOption === 'titrating strong acid with strong base' || selectedOption === 'titrating strong base with strong acid';
-    const isAcidBaseTitration = selectedOption === 'titrating weak acid with strong base' || selectedOption === 'titrating weak base with strong acid';
-
+    const isAcidWithBaseTitration = selectedOption.includes('acid with strong base');
+    const isBaseWithAcidTitration = selectedOption.includes('base with strong acid');
+    const isStrongAcidBaseTitration = selectedOption.includes('titrating strong');
+  
     return (
       <div className="form-container">
         <div className="form-group">
           <label>
-            {isAcidBaseTitration ? 'Ka' : 'Kb'}:
+            {isAcidWithBaseTitration ? 'Ka' : 'Kb'}:
             <input
               type="text"
-              name={isAcidBaseTitration ? 'Ka' : 'Kb'}
-              value={isStrongAcidBaseTitration ? 'NOT NEEDED' : formDataPH[isAcidBaseTitration ? 'Ka' : 'Kb']}
+              name={isAcidWithBaseTitration ? 'Ka' : 'Kb'}
+              value={isStrongAcidBaseTitration ? 'NOT NEEDED' : formDataPH[isAcidWithBaseTitration ? 'Ka' : 'Kb']}
               onChange={handlePHChange}
-              placeholder={`${isAcidBaseTitration ? 'Ka' : 'Kb'}`}
+              placeholder={`${isAcidWithBaseTitration ? 'Ka' : 'Kb'}`}
               readOnly={isStrongAcidBaseTitration}
             />
           </label>
@@ -137,28 +138,28 @@ const Titrations = () => {
           <div className='center-header-flex'>
             <div className="form-group">
               <label>
-                Initial volume of {isAcidBaseTitration ? 'acid' : 'base'}:
-                <input type="number" name="Vi" value={formDataPH.Vi} min="0" onChange={handlePHChange} placeholder={`Enter initial volume of ${isAcidBaseTitration ? 'acid' : 'base'}`} />
+                Initial volume of {isAcidWithBaseTitration ? 'base' : 'acid'}:
+                <input type="number" name="Vi" value={formDataPH.Vi} min="0" onChange={handlePHChange} placeholder={`Enter initial volume of ${isAcidWithBaseTitration ? 'base' : 'acid'}`} />
               </label>
             </div>
             <div className="form-group">
               <label>
-                Initial molarity of {isAcidBaseTitration ? 'acid' : 'base'}:
-                <input type="number" name="Ma" value={formDataPH.Ma} min="0" onChange={handlePHChange} placeholder={`Enter initial molarity of ${isAcidBaseTitration ? 'acid' : 'base'}`} />
+                Initial molarity of {isAcidWithBaseTitration ? 'base' : 'acid'}:
+                <input type="number" name="Ma" value={formDataPH.Ma} min="0" onChange={handlePHChange} placeholder={`Enter initial molarity of ${isAcidWithBaseTitration ? 'base' : 'acid'}`} />
               </label>
             </div>
           </div>
           <div className='center-header-flex'>
             <div className="form-group">
               <label>
-                Molarity of {isAcidBaseTitration ? 'base' : 'acid'}:
-                <input type="number" name="Mb" value={formDataPH.Mb} min="0" onChange={handlePHChange} placeholder={`Enter molarity of ${isAcidBaseTitration ? 'base' : 'acid'}`} />
+                Molarity of {isAcidWithBaseTitration ? 'acid' : 'base'}:
+                <input type="number" name="Mb" value={formDataPH.Mb} min="0" onChange={handlePHChange} placeholder={`Enter molarity of ${isAcidWithBaseTitration ? 'acid' : 'base'}`} />
               </label>
             </div>
             <div className="form-group">
               <label>
-                Volume of {isAcidBaseTitration ? 'base added' : 'acid added'}:
-                <input type="number" name="V_added" value={formDataPH.V_added} min="0" onChange={handlePHChange} placeholder={`Enter volume of ${isAcidBaseTitration ? 'base added' : 'acid added'}`} />
+                Volume of {isAcidWithBaseTitration ? 'acid added' : 'base added'}:
+                <input type="number" name="V_added" value={formDataPH.V_added} min="0" onChange={handlePHChange} placeholder={`Enter volume of ${isAcidWithBaseTitration ? 'acid added' : 'base added'}`} />
               </label>
             </div>
           </div>
@@ -175,13 +176,11 @@ const Titrations = () => {
         <button className="calculate-button" onClick={handlePHSubmit}>Calculate</button>
         <div className="result">
           <h5>pH = {responsePHData}</h5>
-          
         </div>
       </div>
     );
-
   };
-
+  
   const renderMolarityForm = () => {
     return (
       <div className="form-container">
