@@ -22,10 +22,7 @@ const Header = () => {
         
       </div>
       <div className="header-container">
-        <img src={backgroundImage} alt="Cats doing chemistry" className="header-image" />
-        <div className="header-text">
-          <h1>Replace with video</h1>
-        </div>
+        
       </div>
     </div>
     
