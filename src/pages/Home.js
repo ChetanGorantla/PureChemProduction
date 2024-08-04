@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import EquationInput from '../components/EquationInput';
 import { Analytics } from "@vercel/analytics/react"
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
         </button>
       </div>
       <Analytics/>
-      
+      <Footer/>
     </div>
   );
 };

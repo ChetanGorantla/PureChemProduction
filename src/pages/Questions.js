@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Modal from 'react-modal';
+import Footer from '../components/Footer';
 import '../App.css';  // Assuming App.css contains your styles
 
 const Questions = () => {
@@ -2248,6 +2249,7 @@ const Questions = () => {
           )}
           <button onClick={closeModal}>Close</button>
         </Modal>
+        <Footer/>
       </div>
     );
   };

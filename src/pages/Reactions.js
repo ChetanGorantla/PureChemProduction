@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import axios from 'axios';
+import Footer from '../components/Footer';
 
 const Reactions = () => {
   let [hashMap, setHashMap] = useState({});
@@ -430,7 +431,8 @@ const Reactions = () => {
           </div>
         </div>
       )}
-      
+    
+      <Footer/>
     </div>
   );
 };

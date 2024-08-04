@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 import '../App.css';
 
 const Titrations = () => {
@@ -278,6 +279,7 @@ const Titrations = () => {
           {renderPHForm()}
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import axios from 'axios';
+import Footer from '../components/Footer';
 
 const Predictions = () => {
   const [meltingString, setMeltingString] = useState('');
@@ -86,6 +87,7 @@ const Predictions = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
