@@ -1,18 +1,33 @@
-# [PureChem](purechem.vercel.app)
-<h3>Hi! I'm Chetan Gorantla, one of the three devs (me, Cosmo Wu, and Sidharth Duttala) that made this website.<h3>
-I'm the full-stack dev, and Cosmo and Sid are the backend devs. We're currently high school seniors that are passionate about Computer Science, and decided to make this website to help out fellow students.
-<p>PureChem is a website to help students prepare for AP Chemistry and USNCO. </p>
-<p>Features of this website include:</p>
-<ul>
-    <li>Reaction calculator that can balance equations, calculate dG, dH, dS, <br/>and provide an ICE and BCA table</li>
-    <br></br>
-    <li>Titration calculator that calculates the pH at different parts of a titration and finds the unknown molarity</li>
-    <br></br>
-    <li>Solubility and Melting point predictors that reorder given compounds in order of <br/>solubility or melting point</li>
-    <br></br>
-    <li>100+ practice problems for all chemistry topics</li>
-</ul>
-<p>Our goal is to make chemistry calculators more accessible for everyone. We hope you find our website useful!</p>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://cdn-icons-png.flaticon.com/512/8758/8758581.png">
-</picture>
+# PureChem
+
+![PureChem Logo](https://cdn-icons-png.flaticon.com/512/8758/8758581.png)
+
+## About PureChem
+
+Hi! I'm Chetan Gorantla, one of the three developers of PureChem, alongside Cosmo Wu and Sidharth Duttala. We're high school seniors passionate about Computer Science, and we built this website to help fellow students.
+
+**PureChem** is designed to assist students in preparing for AP Chemistry and the US National Chemistry Olympiad (USNCO). Our goal is to make chemistry calculators more accessible for everyone, and we hope you find our website useful!
+
+## Features
+
+- **Reaction Calculator**: Balance chemical equations, calculate ΔG, ΔH, ΔS, and generate ICE and BCA tables.
+  
+- **Titration Calculator**: Calculate the pH at different points of a titration and determine the unknown molarity.
+
+- **Solubility & Melting Point Predictors**: Reorder compounds based on solubility or melting point.
+
+- **Practice Problems**: Over 100 practice problems covering various chemistry topics.
+
+## Our Team
+
+- **Chetan Gorantla** - Full-Stack Developer
+- **Cosmo Wu** - Backend Developer
+- **Sidharth Duttala** - Backend Developer
+
+## Our Mission
+
+We aim to make chemistry more approachable and enjoyable by providing a suite of powerful tools for students.
+
+## Contact
+
+Feel free to check out [PureChem](https://purechem.vercel.app) and let us know your thoughts!
