@@ -17,12 +17,19 @@ const styles = {
     bottom: '10px',
     left: '10px',
     zIndex: 1000, // Ensure it stays on top
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none', // To ensure it does not block other content
   },
   icon: {
-    width: '20%',
-    height: '20%',
+    width: '60px',
+    height: '60px',
     opacity: 0.7,
     transition: 'opacity 0.3s',
+    pointerEvents: 'auto', // Re-enable pointer events for the icon itself
   },
 };
 
@@ -31,7 +38,7 @@ const handleHover = (e) => {
 };
 
 const handleUnhover = (e) => {
-  e.target.style.opacity = 0.5;
+  e.target.style.opacity = 0.7;
 };
 
 document.addEventListener('DOMContentLoaded', () => {
