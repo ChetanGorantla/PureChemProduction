@@ -19,8 +19,8 @@ const styles = {
     zIndex: 1000, // Ensure it stays on top
   },
   icon: {
-    width: '40px',
-    height: '40px',
+    width: '20%',
+    height: '20%',
     opacity: 0.7,
     transition: 'opacity 0.3s',
   },
@@ -31,7 +31,7 @@ const handleHover = (e) => {
 };
 
 const handleUnhover = (e) => {
-  e.target.style.opacity = 0.7;
+  e.target.style.opacity = 0.5;
 };
 
 document.addEventListener('DOMContentLoaded', () => {
