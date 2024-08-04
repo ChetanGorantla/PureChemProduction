@@ -1,4 +1,4 @@
-# PureChem
+# [PureChem](purechem.vercel.app)
 
 ![PureChem Logo](https://cdn-icons-png.flaticon.com/512/8758/8758581.png)
 
@@ -6,7 +6,7 @@
 
 Hi! I'm Chetan Gorantla, one of the three developers of PureChem, alongside Cosmo Wu and Sidharth Duttala. We're high school seniors passionate about Computer Science, and we built this website to help fellow students.
 
-**PureChem** is designed to assist students in preparing for AP Chemistry and the US National Chemistry Olympiad (USNCO). Our goal is to make chemistry calculators more accessible for everyone, and we hope you find our website useful!
+**PureChem** is designed to assist students in preparing for AP Chemistry and the US National Chemistry Olympiad (USNCO). Our goal is to make chemistry calculators more accessible and approachable for everyone, so we hope you find our website useful!
 
 ## Features
 
@@ -24,10 +24,7 @@ Hi! I'm Chetan Gorantla, one of the three developers of PureChem, alongside Cosm
 - **Cosmo Wu** - Backend Developer
 - **Sidharth Duttala** - Backend Developer
 
-## Our Mission
-
-We aim to make chemistry more approachable and enjoyable by providing a suite of powerful tools for students.
-
 ## Contact
 
 Feel free to check out [PureChem](https://purechem.vercel.app) and let us know your thoughts!
+Reach out to chetangorantla7@gmail.com with any questions.
