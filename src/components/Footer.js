@@ -1,6 +1,6 @@
 import React from 'react';
-import githubIcon from '.../public/github-logo.png'; // Make sure the path is correct
 
+let githubIcon = "https://cdn.freebiesupply.com/logos/thumbs/2x/github-icon-1-logo.png";
 function Footer() {
   return (
     <div style={styles.container}>
