@@ -100,6 +100,7 @@ def SBTWA(Ka, Ma,Mb,Vi,V_added):
         ConcB = mol_B/V_total
         pH = 14 + math.log(ConcB,10)
         pH = round_to_sig_figs(pH, 3)
+        pH = str(pH)
         return pH + extra
     
 def SBTWAsig(Ka, Ma, Mb, Vi, V_added, sig):
@@ -158,7 +159,7 @@ def SBTWAsig(Ka, Ma, Mb, Vi, V_added, sig):
         ConcB = mol_B / V_total
         pH = 14 + math.log(ConcB, 10)
         pH = round_to_sig_figs(pH, sig)
-        return pH + extra
+        return str(pH) + extra
     
 def SATWB(Kb, Mb,Ma,Vi,V_added):
     V_total = V_added + Vi
