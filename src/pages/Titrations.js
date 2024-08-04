@@ -115,7 +115,7 @@ const Titrations = () => {
 
 
   const renderPHForm = () => {
-    const isAcidWithBaseTitration = selectedOption.includes('base with strong acid');
+    const isAcidWithBaseTitration = selectedOption.includes('acid with strong base');
     const isBaseWithAcidTitration = selectedOption.includes('');
     const isStrongAcidBaseTitration = selectedOption.includes('titrating strong');
   
