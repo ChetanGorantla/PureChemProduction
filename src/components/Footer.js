@@ -25,8 +25,8 @@ const styles = {
     pointerEvents: 'none', // To ensure it does not block other content
   },
   icon: {
-    width: '80px',
-    height: '60px',
+    width: '60px',
+    height: '45px',
     opacity: 0.7,
     transition: 'opacity 0.3s',
     pointerEvents: 'auto', // Re-enable pointer events for the icon itself
