@@ -180,6 +180,10 @@ div > div {
   color: #356848;
 }
 
+.equation-input-class {
+  width: 150%;
+}
+
 .equation-input-and-button {
   display: flex;
   flex-direction: row;

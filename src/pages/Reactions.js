@@ -256,6 +256,7 @@ const Reactions = () => {
                 type="text"
                 value={equation}
                 onChange={handleInputChange}
+                className = "equation-input-class"
                 placeholder="Enter any chemistry equation and we'll balance it!"
               />
             </form>
