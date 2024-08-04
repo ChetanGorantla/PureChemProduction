@@ -250,6 +250,9 @@ const Reactions = () => {
       <Navigation />
       <div className="column-header-flex">
         <div className="column-header-flex">
+          {!showResults && (
+            <h3>{"Example reaction to test: C2H4 + O2 -> CO2 + H2O"}</h3>
+          )}
           <div className="equation-display">
             <h3 dangerouslySetInnerHTML={{ __html: formatEquation(equation) }} />
           </div>
