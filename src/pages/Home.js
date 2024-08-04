@@ -13,7 +13,9 @@ const Home = () => {
     navigate('/reactions');
   };
   return (
+    
     <div>
+      <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'></link>
       <Navigation />
       <Header />
       <div className="equation-input-and-button">
