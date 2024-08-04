@@ -145,7 +145,7 @@ const Titrations = () => {
             <div className="form-group">
               <label>
                 Initial molarity of {isAcidWithBaseTitration ? 'acid' : 'base'}:
-                <input type="number" name="Ma" value={formDataPH.Ma} min="0" onChange={handlePHChange} placeholder={`Enter initial molarity of ${isAcidWithBaseTitration ? 'acid' : 'base'}`} />
+                <input type="number" name={isAcidWithBaseTitration?"Ma":"Mb"} value={formDataPH.Ma} min="0" onChange={handlePHChange} placeholder={`Enter initial molarity of ${isAcidWithBaseTitration ? 'acid' : 'base'}`} />
               </label>
             </div>
           </div>
@@ -153,7 +153,7 @@ const Titrations = () => {
             <div className="form-group">
               <label>
                 Molarity of {isAcidWithBaseTitration ? 'base' : 'acid'}:
-                <input type="number" name="Mb" value={formDataPH.Mb} min="0" onChange={handlePHChange} placeholder={`Enter molarity of ${isAcidWithBaseTitration ? 'base' : 'acid'}`} />
+                <input type="number" name={isAcidWithBaseTitration?"Mb":"Ma"} value={formDataPH.Mb} min="0" onChange={handlePHChange} placeholder={`Enter molarity of ${isAcidWithBaseTitration ? 'base' : 'acid'}`} />
               </label>
             </div>
             <div className="form-group">
