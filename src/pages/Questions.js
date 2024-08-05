@@ -8,7 +8,7 @@ const Questions = () => {
   const questionTopics = {
     "Chemical Foundations": [
       {
-        questionHeader: "The molecular formula of glucose is C6H12O6",
+        questionHeader: "The molecular formula of glucose is C6H12O6. Find the empirical formula of glucose.",
         isMultipleChoice: false,
         a: "",
         b: "",
@@ -16,9 +16,9 @@ const Questions = () => {
         d: "",
         correctMCQ: "",
         openAnswer: "CH2O",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "By definition, the empirical formula of a compound is when all the subscripts of the atoms in the formula are in the lowest whole-number ratio. Currently, the ratio is 6:12:6. If we divide this ratio by 6, we have 1:2:1, so our answer is CH2O.",
         solutionImage: ""
       },
       {
@@ -30,9 +30,9 @@ const Questions = () => {
         d: "",
         correctMCQ: "",
         openAnswer: "19",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "We first deal with 15.6/3.0, this evaluates to 5.2 since 3.0 only has 2 significant figures. Then we add 5.2 to 14. This gives us 19.2. However, since the least precise decimal place is the units digit, we must round our answer to 19. ",
         solutionImage: ""
       },
       {
@@ -44,9 +44,9 @@ const Questions = () => {
         d: "Neither I or II",
         correctMCQ: "b",
         openAnswer: "",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "By definition, a heterogeneous mixture is a mixture that doesn’t have uniform composition. We can eliminate off I. Ammonia since this is a pure substance. A mixture must have two or more different types of pure substance. Although II. Water + NaCl may seem tempting, this is also not a heterogeneous mixture as water and NaCl create a solution, which is an HOMOgeneous mixture (meaning the mixture is uniform throughout) and is thus not a heterogeneous mixture. Thus, our answer is D.",
         solutionImage: ""
       },
       {
@@ -58,9 +58,9 @@ const Questions = () => {
         d: "Law",
         correctMCQ: "d",
         openAnswer: "",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "Let’s recall the definition of each of the options: Theory- A possible EXPLANATION of why a phenomenon is occurring. A theory can be disproven. Measurement- A quantitative observation Hypothesis- A prediction or explanation for an experiment   Law - A natural phenomenon that occurs by nature Gravity is described by the law of gravity, formulated by Isaac Newton. This law explains the force that pulls objects towards each other, which is why we are pulled down towards the Earth, so our answer is D.",
         solutionImage: ""
       },
       {
@@ -72,9 +72,9 @@ const Questions = () => {
         d: "",
         correctMCQ: "",
         openAnswer: "6",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "This problem can be solved by noting that leading zeroes are not counted as significant figures, but all the other types of zeroes are included. Thus, our answer is simply the number of digits after and including 8, so 6.",
         solutionImage: ""
       },
       {
@@ -86,9 +86,9 @@ const Questions = () => {
         d: "gal",
         correctMCQ: "c",
         openAnswer: "",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "All of the options are a unit of volume except for C, which is a unit of mass. ",
         solutionImage: ""
       },
       {
@@ -100,9 +100,9 @@ const Questions = () => {
         d: "",
         correctMCQ: "",
         openAnswer: "+7 or 7 or 7+",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "We know that when in an ionic compound, Calcium tends to form a Ca2+ ion since it is a group 2 alkaline earth metal. Thus, this means that the charge of the ClO4 polyatomic ion is a -1 since two of this polyatomic ion end up canceling the 2+ charge from the Calcium ion. Let the oxidation number of Cl be x. In most cases, oxygen tends to have a -2 charge. So have the equation x-8 = -1, solving for x, we get 7+. ",
         solutionImage: ""
       },
       {
@@ -114,9 +114,9 @@ const Questions = () => {
         d: "",
         correctMCQ: "",
         openAnswer: "8.7",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "By conservation of mass, the amount of mass used up on the reactant’s side must be equal to the mass-produced on the product’s side. Thus, we have 12.3 + 5.9 + x = 26.9 where x is the mass of the third product. Solving for x, we get the amount of mass of the third product is x=8.7g ",
         solutionImage: ""
       },
       {
@@ -128,9 +128,9 @@ const Questions = () => {
         d: "",
         correctMCQ: "",
         openAnswer: "1.7",
-        hasSolution: false,
+        hasSolution: true,
         hasSolutionImage: false,
-        solutionText: "",
+        solutionText: "This question can be solved through using the percent error formula through careful tracking of the significant figures. The formula for percent error is as followings: % error = |experimental - actual|/actual*100 = |9.977 - 9.81|/9.81 * 100 = 0.17/9.81* 100 = 1.7%. Note that we wrote 9.977-9.81 as 0.17. This is because the least precise significant figure was the hundredths digit.",
         solutionImage: ""
       }
     ],
