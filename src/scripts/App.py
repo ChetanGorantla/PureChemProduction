@@ -44,7 +44,7 @@ def parse_to_float(value):
     except ValueError:
         return None
 
-def round_to_sig_figs(value, sig_figs):
+def round_to_sig_figs_ph(value, sig_figs):
     if value == 0:
         return 0
     def check(value,sig_figs):
@@ -73,14 +73,14 @@ def SBTWA(Ka, Ma,Mb,Vi,V_added):
       ConcA = mol_A/V_total
       solution = math.sqrt(ConcA * Ka)
       pH = -math.log(solution,10)
-      pH = round_to_sig_figs(pH,3)
+      pH = round_to_sig_figs_ph(pH,3)
       pH = str(pH)
       return pH + extra
     if(mol_A > mol_B):
         mol_conj = mol_B
         mol_A = mol_A - mol_B
         pH = pKa + math.log(mol_conj/mol_A,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         pH = str(pH)
         if(mol_conj == mol_A):
             return pH + ' (Weak Acid Buffer Region)' + ' (Half Equivalence Point pKa = pH)'
@@ -90,7 +90,7 @@ def SBTWA(Ka, Ma,Mb,Vi,V_added):
         ConcB = mol_B/V_total
         solution = math.sqrt(ConcB * Kb)
         pH = 14 + math.log(solution,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         extra = ' (Equivalence Point)'
         pH = str(pH)
         return pH + extra
@@ -99,7 +99,7 @@ def SBTWA(Ka, Ma,Mb,Vi,V_added):
         mol_B = mol_B - mol_A
         ConcB = mol_B/V_total
         pH = 14 + math.log(ConcB,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         pH = str(pH)
         return pH + extra
     
@@ -129,7 +129,7 @@ def SBTWAsig(Ka, Ma, Mb, Vi, V_added, sig):
         ConcA = mol_A / V_total
         solution = math.sqrt(ConcA * Ka)
         pH = -math.log(solution, 10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         pH = str(pH)
         return pH + extra
 
@@ -137,7 +137,7 @@ def SBTWAsig(Ka, Ma, Mb, Vi, V_added, sig):
         mol_conj = mol_B
         mol_A = mol_A - mol_B
         pH = pKa + math.log(mol_conj / mol_A, 10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         pH = str(pH)
         extra = ' (Weak Acid Buffer Region)'
         if mol_conj == mol_A:
@@ -148,7 +148,7 @@ def SBTWAsig(Ka, Ma, Mb, Vi, V_added, sig):
         ConcB = mol_B / V_total
         solution = math.sqrt(ConcB * Kb)
         pH = 14 + math.log(solution, 10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         extra = ' (Equivalence Point)'
         pH = str(pH)
         return pH + extra
@@ -158,7 +158,7 @@ def SBTWAsig(Ka, Ma, Mb, Vi, V_added, sig):
         mol_B = mol_B - mol_A
         ConcB = mol_B / V_total
         pH = 14 + math.log(ConcB, 10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         return str(pH) + extra
     
 def SATWB(Kb, Mb,Ma,Vi,V_added):
@@ -174,7 +174,7 @@ def SATWB(Kb, Mb,Ma,Vi,V_added):
       ConcB = mol_B/V_total
       solution = math.sqrt(ConcB * Kb)
       pH = 14 + math.log(solution,10)
-      pH = round_to_sig_figs(pH,3)
+      pH = round_to_sig_figs_ph(pH,3)
       pH = str(pH)
       return pH + extra
     if(mol_B > mol_A):
@@ -182,7 +182,7 @@ def SATWB(Kb, Mb,Ma,Vi,V_added):
         mol_B = mol_B - mol_A
         pOH = pKb + math.log(mol_conj/mol_B,10)
         pH = 14 - pOH
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         if(mol_conj == mol_B):
             return pH + ' (Weak Base Buffer Region)' + ' (Half Equivalence Point pKa = pH)'
         pH = str(pH)
@@ -192,7 +192,7 @@ def SATWB(Kb, Mb,Ma,Vi,V_added):
         ConcA = mol_A/V_total
         solution = math.sqrt(Ka * ConcA)
         pH = -math.log(solution,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         extra = ' (Equivalence Point)'
         pH = str(pH)
         return pH + extra
@@ -201,7 +201,7 @@ def SATWB(Kb, Mb,Ma,Vi,V_added):
         mol_A = mol_A - mol_B
         ConcA = mol_A/V_total
         pH = -math.log(ConcA,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         pH = str(pH)
         return pH + extra
     
@@ -225,7 +225,7 @@ def SATWBsig(Kb, Mb,Ma,Vi,V_added,sig):
       ConcB = mol_B/V_total
       solution = math.sqrt(ConcB * Kb)
       pH = 14 + math.log(solution,10)
-      pH = round_to_sig_figs(pH,sig)
+      pH = round_to_sig_figs_ph(pH,sig)
       pH = str(pH)
       return pH + extra
     if(mol_B > mol_A):
@@ -233,7 +233,7 @@ def SATWBsig(Kb, Mb,Ma,Vi,V_added,sig):
         mol_B = mol_B - mol_A
         pOH = pKb + math.log(mol_conj/mol_B,10)
         pH = 14 - pOH
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         pH = str(pH)
         if(mol_conj == mol_B):
             return pH + ' (Weak Base Buffer Region)' + ' (Half Equivalence Point pKa = pH)'
@@ -243,7 +243,7 @@ def SATWBsig(Kb, Mb,Ma,Vi,V_added,sig):
         ConcA = mol_A/V_total
         solution = math.sqrt(Ka * ConcA)
         pH = -math.log(solution,10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         extra = ' (Equivalence Point)'
         pH = str(pH)
         return pH + extra
@@ -252,7 +252,7 @@ def SATWBsig(Kb, Mb,Ma,Vi,V_added,sig):
         mol_A = mol_A - mol_B
         ConcA = mol_A/V_total
         pH = -math.log(ConcA,10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         pH = str(pH)
         return pH + extra
     
@@ -266,13 +266,13 @@ def SATSB(Mb,Ma,Vi,V_added):
       extra = ' (No Volume Added)'
       ConcB = mol_B/V_total
       pH = 14 + math.log(ConcB,10)
-      pH = round_to_sig_figs(pH,3)
+      pH = round_to_sig_figs_ph(pH,3)
       pH = str(pH)
       return pH + extra
     if(mol_B > mol_A):
         Conc = (mol_B-mol_A)/V_total
         pH = 14 + math.log(Conc,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         extra = ' (Excess Base)'
         pH = str(pH)
         return pH + extra
@@ -285,7 +285,7 @@ def SATSB(Mb,Ma,Vi,V_added):
         Conc = (mol_A-mol_B)/V_total
         extra = ' (Excess Acid)'
         pH = -math.log(Conc,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         pH = str(pH)
         return pH + extra
     
@@ -307,13 +307,13 @@ def SATSBsig(Mb,Ma,Vi,V_added,sig):
       extra = ' (No Volume Added)'
       ConcB = mol_B/V_total
       pH = 14 + math.log(ConcB,10)
-      pH = round_to_sig_figs(pH,sig)
+      pH = round_to_sig_figs_ph(pH,sig)
       pH = str(pH)
       return pH + extra
     if(mol_B > mol_A):
         Conc = (mol_B-mol_A)/V_total
         pH = 14 + math.log(Conc,10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         extra = ' (Excess Base)'
         pH = str(pH)
         return pH + extra
@@ -326,7 +326,7 @@ def SATSBsig(Mb,Ma,Vi,V_added,sig):
         Conc = (mol_A-mol_B)/V_total
         extra = ' (Excess Acid)'
         pH = -math.log(Conc,10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         pH = str(pH)
         return pH + extra
     
@@ -340,13 +340,13 @@ def SBTSA(Ma,Mb,Vi,V_added):
       extra = ' (No Volume Added)'
       ConcA = mol_A/V_total
       pH = -math.log(ConcA,10)
-      pH = round_to_sig_figs(pH,3)
+      pH = round_to_sig_figs_ph(pH,3)
       pH = str(pH)
       return pH + extra
     if(mol_B > mol_A):
         Conc = (mol_B-mol_A)/V_total
         pH = 14 + math.log(Conc,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         extra = ' (Excess Base)'
         pH = str(pH)
         return pH + extra
@@ -359,7 +359,7 @@ def SBTSA(Ma,Mb,Vi,V_added):
         Conc = (mol_A-mol_B)/V_total
         extra = ' (Excess Acid)'
         pH = -math.log(Conc,10)
-        pH = round_to_sig_figs(pH, 3)
+        pH = round_to_sig_figs_ph(pH, 3)
         pH = str(pH)
         return pH + extra
     
@@ -380,13 +380,13 @@ def SBTSAsig(Ma,Mb,Vi,V_added,sig):
       extra = ' (No Volume Added)'
       ConcA = mol_A/V_total
       pH = -math.log(ConcA,10)
-      pH = round_to_sig_figs(pH,sig)
+      pH = round_to_sig_figs_ph(pH,sig)
       pH = str(pH)
       return pH + extra
     if(mol_B > mol_A):
         Conc = (mol_B-mol_A)/V_total
         pH = 14 + math.log(Conc,10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         extra = ' (Excess Base)'
         pH = str(pH)
         return pH + extra
@@ -399,7 +399,7 @@ def SBTSAsig(Ma,Mb,Vi,V_added,sig):
         Conc = (mol_A-mol_B)/V_total
         extra = ' (Excess Acid)'
         pH = -math.log(Conc,10)
-        pH = round_to_sig_figs(pH, sig)
+        pH = round_to_sig_figs_ph(pH, sig)
         pH = str(pH)
         return pH + extra
 
