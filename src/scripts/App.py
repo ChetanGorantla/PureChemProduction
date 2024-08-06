@@ -471,7 +471,6 @@ def round_to_sig_figs_titration(value, sig_figs):
     rounded_value = round(value, decimal_places)
 
     # Format the value to ensure it has the correct number of significant figures
-    
 
     return rounded_value
 
@@ -487,17 +486,34 @@ def unknownmolarity(given,initial,final):
 
         return unknown
     
-def unknownmolarity1sig(given,initial,final,sigfig):
+def unknownmolaritysig(given,initial,final,sigfig):
+    given = parse_to_float(given)
+    initial = parse_to_float(initial)
+    final = parse_to_float(final)
+    sigfig = int(sigfig)
     v_added = final - initial
     if(v_added > 0):
         unknown = given * initial/v_added
-        unknown = round_to_sig_figs(unknown, sigfig)
+        unknown = round_to_sig_figs_titration(unknown, sigfig)
         unknown = str(unknown) + ' M'
         return unknown
     else:
         unknown = 'N/A - final volume is less than initial'
         return unknown
-
+def unknownmolarity1sig(given,initial,final,sigfig):
+    given = parse_to_float(given)
+    initial = parse_to_float(initial)
+    final = parse_to_float(final)
+    sigfig = int(sigfig)
+    v_added = final - initial
+    if(v_added > 0):
+        unknown = given * initial/v_added
+        unknown = round_to_sig_figs_titration(unknown, sigfig)
+        unknown = str(unknown) + ' M'
+        return unknown
+    else:
+        unknown = 'N/A - final volume is less than initial'
+        return unknown
 @app.route('/calculate-molarity', methods=['POST'])
 def calculate_missing_molarity():
     data = request.json
