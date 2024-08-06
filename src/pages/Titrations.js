@@ -22,7 +22,7 @@ const Titrations = () => {
     given:'',
     initial:'',
     final:'',
-    sigfig:6, // Initial significant figures for molarity calculations
+    sigfig:2, // Initial significant figures for molarity calculations
   });
   const [responsePHData, setResponsePHData] = useState(null);
   const [responseMolarityData, setResponseMolarityData] = useState(null);
