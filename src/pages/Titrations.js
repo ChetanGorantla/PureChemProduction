@@ -59,7 +59,7 @@ const Titrations = () => {
       let response;
       if (selectedForm === 'ph') {
         if (selectedOption === 'Titrating weak acid with strong base' || selectedOption === 'titrating weak acid with strong base') {
-          response = await axios.post('{process.env.BACKEND_API}/calculate-ph-sbtwasig', {
+          response = await axios.post('{process.env.REACT_APP_BACKEND_API}/calculate-ph-sbtwasig', {
             Ka: formDataPH.Ka,
             Ma: formDataPH.Ma,
             Mb: formDataPH.Mb,
@@ -68,7 +68,7 @@ const Titrations = () => {
             sig: formDataPH.sig,
           });
         } else if (selectedOption === 'titrating strong acid with strong base' || selectedOption === 'Titrating strong acid with strong base') {
-          response = await axios.post('{process.env.BACKEND_API}/calculate-ph-sbtsasig', {
+          response = await axios.post('{process.env.REACT_APP_BACKEND_API}/calculate-ph-sbtsasig', {
             Mb: formDataPH.Mb,
             Ma: formDataPH.Ma,
             Vi: formDataPH.Vi,
@@ -76,7 +76,7 @@ const Titrations = () => {
             sig: formDataPH.sig,
           });
         } else if (selectedOption === 'titrating weak base with strong acid' || selectedOption === 'Titrating weak base with strong acid') {
-          response = await axios.post('{process.env.BACKEND_API}/calculate-ph-satwbsig', {
+          response = await axios.post('{process.env.REACT_APP_BACKEND_API}/calculate-ph-satwbsig', {
             Kb: formDataPH.Kb,
             Mb: formDataPH.Mb,
             Ma: formDataPH.Ma,
@@ -85,7 +85,7 @@ const Titrations = () => {
             sig: formDataPH.sig,
           });
         } else if (selectedOption === 'titrating strong base with strong acid' || selectedOption === 'Titrating strong base with strong acid') {
-          response = await axios.post('{process.env.BACKEND_API}/calculate-ph-satsbsig', {
+          response = await axios.post('{process.env.REACT_APP_BACKEND_API}/calculate-ph-satsbsig', {
             Ma: formDataPH.Ma,
             Mb: formDataPH.Mb,
             Vi: formDataPH.Vi,
@@ -105,7 +105,7 @@ const Titrations = () => {
     try {
       let response;
       if (selectedForm === 'molarity') {
-        response = await axios.post('{process.env.BACKEND_API}/calculate-molarity', {
+        response = await axios.post('{process.env.REACT_APP_BACKEND_API}/calculate-molarity', {
           given: formDataMolarity.given,
           initial: formDataMolarity.initial,
           final: formDataMolarity.final,
