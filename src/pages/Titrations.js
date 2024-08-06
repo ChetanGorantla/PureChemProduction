@@ -8,7 +8,6 @@ const Titrations = () => {
   const [selectedOption, setSelectedOption] = useState('Titrating weak acid with strong base');
   const [selectedForm, setSelectedForm] = useState('molarity');
   const [dropdown, setDropdown] = useState('acid');
-  const [sigFigs, setSigFigs] = useState(2);
   const [formDataPH, setFormDataPH] = useState({
     Ka: '',
     Kb: '',
@@ -16,18 +15,27 @@ const Titrations = () => {
     Mb: '',
     Vi: '',
     V_added: '',
+    sig: 2,
   });
   const [formDataMolarity, setFormDataMolarity] = useState({
     given:'',
     initial:'',
     final:'',
-    sigfig:'6',
+    sigfig:6,
   });
   const [responsePHData, setResponsePHData] = useState(null);
   const [responseMolarityData, setResponseMolarityData] = useState(null);
 
   const handleSigFigsInputChange = (e) => {
-    setSigFigs(e.target.value);
+    const newSigFigs = e.target.value;
+    setFormDataPH({
+      ...formDataPH,
+      sig: newSigFigs,
+    });
+    setFormDataMolarity({
+      ...formDataMolarity,
+      sigfig: newSigFigs,
+    });
   };
 
   const handlePHChange = (e) => {
@@ -36,6 +44,7 @@ const Titrations = () => {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleMolarityChange = (e) => {
     setFormDataMolarity({
       ...formDataMolarity,
@@ -55,16 +64,15 @@ const Titrations = () => {
             Mb: formDataPH.Mb,
             Vi: formDataPH.Vi,
             V_added: formDataPH.V_added,
-            sig: sigFigs,
+            sig: formDataPH.sig,
           });
         } else if (selectedOption === 'titrating strong acid with strong base' || selectedOption === 'Titrating strong acid with strong base') {
           response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-sbtsasig', {
-        
             Mb: formDataPH.Mb,
             Ma: formDataPH.Ma,
             Vi: formDataPH.Vi,
             V_added: formDataPH.V_added,
-            sig: sigFigs,
+            sig: formDataPH.sig,
           });
         } else if (selectedOption === 'titrating weak base with strong acid' || selectedOption === 'Titrating weak base with strong acid') {
           response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-satwbsig', {
@@ -73,19 +81,17 @@ const Titrations = () => {
             Ma: formDataPH.Ma,
             Vi: formDataPH.Vi,
             V_added: formDataPH.V_added,
-            sig: sigFigs,
+            sig: formDataPH.sig,
           });
         } else if (selectedOption === 'titrating strong base with strong acid' || selectedOption === 'Titrating strong base with strong acid') {
           response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-ph-satsbsig', {
             Ma: formDataPH.Ma,
             Mb: formDataPH.Mb,
-            
             Vi: formDataPH.Vi,
             V_added: formDataPH.V_added,
-            sig: sigFigs,
+            sig: formDataPH.sig,
           });
         }
-        
       }
       setResponsePHData(response.data.result);
     } catch (error) {
@@ -98,15 +104,12 @@ const Titrations = () => {
     try {
       let response;
       if (selectedForm === 'molarity') {
-        
-          response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-molarity', {
-            given: formDataMolarity.given,
-            initial: formDataMolarity.initial,
-            final: formDataMolarity.final,
-            sigfig: formDataMolarity.sigfig
-
-          });
-        
+        response = await axios.post('https://purechem-263a4a4b5c6d.herokuapp.com/calculate-molarity', {
+          given: formDataMolarity.given,
+          initial: formDataMolarity.initial,
+          final: formDataMolarity.final,
+          sigfig: formDataMolarity.sigfig
+        });
       }
       setResponseMolarityData(response.data.result);
     } catch (error) {
