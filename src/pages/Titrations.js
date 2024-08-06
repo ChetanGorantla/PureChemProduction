@@ -230,7 +230,7 @@ const Titrations = () => {
           <h2>Significant Figures</h2>
           <input
             type="number"
-            value={formDataMolarity.sigFigs}
+            value={sigFigs}
             onChange={handleSigFigsInputChange}
             min="2"
           />
