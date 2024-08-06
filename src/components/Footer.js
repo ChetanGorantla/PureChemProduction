@@ -4,7 +4,7 @@ let githubIcon = "https://cdn.freebiesupply.com/logos/thumbs/2x/github-icon-1-lo
 function Footer() {
   return (
     <div style={styles.container}>
-      <a href="https://github.com/ChetanGorantla/PureChem" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/ChetanGorantla/PureChemProduction" target="_blank" rel="noopener noreferrer">
         <img src={githubIcon} alt="GitHub" style={styles.icon} />
       </a>
     </div>
