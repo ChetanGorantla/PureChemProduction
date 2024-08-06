@@ -26,12 +26,12 @@ const Predictions = () => {
     try {
       let response;
       if (type === 'melting') {
-        response = await axios.post('{process.env.REACT_APP_BACKEND_API}/sort-melting', {
+        response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/sort-melting`, {
           molecules: meltingString,
         });
         setResponseDataMelting(response.data.result);
       } else if (type === 'solubility') {
-        response = await axios.post('{process.env.REACT_APP_BACKEND_API}/sort-solubility', {
+        response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/sort-solubility`, {
           compounds: solubilityString,
         });
         setResponseDataSolubility(response.data.result);
