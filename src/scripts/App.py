@@ -487,15 +487,11 @@ def unknownmolarity(given,initial,final):
 
         return unknown
     
-def unknownmolaritysig(given,initial,final,sigfig):
-    given = parse_to_float(given)
-    initial = parse_to_float(initial)
-    final = parse_to_float(final)
-    sigfig = int(sigfig)
+def unknownmolarity1sig(given,initial,final,sigfig):
     v_added = final - initial
     if(v_added > 0):
         unknown = given * initial/v_added
-        unknown = round_to_sig_figs_titration(unknown, sigfig)
+        unknown = round_to_sig_figs(unknown, sigfig)
         unknown = str(unknown) + ' M'
         return unknown
     else:
@@ -512,7 +508,7 @@ def calculate_missing_molarity():
     sigfig = data.get('sigfig')
     print(sigfig)
     
-    result = unknownmolaritysig(given, initial, final, sigfig)
+    result = unknownmolarity1sig(given, initial, final, sigfig)
     print(f"Returning result: {result}")
     return jsonify({'result': result})
 
