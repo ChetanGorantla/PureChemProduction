@@ -8,6 +8,7 @@ const Titrations = () => {
   const [selectedOption, setSelectedOption] = useState('Titrating weak acid with strong base');
   const [selectedForm, setSelectedForm] = useState('molarity');
   const [dropdown, setDropdown] = useState('acid');
+  
   const [formDataPH, setFormDataPH] = useState({
     Ka: '',
     Kb: '',
@@ -15,13 +16,13 @@ const Titrations = () => {
     Mb: '',
     Vi: '',
     V_added: '',
-    sig: 2,
+    sig: 2, // Initial significant figures for pH calculations
   });
   const [formDataMolarity, setFormDataMolarity] = useState({
     given:'',
     initial:'',
     final:'',
-    sigfig:6,
+    sigfig:6, // Initial significant figures for molarity calculations
   });
   const [responsePHData, setResponsePHData] = useState(null);
   const [responseMolarityData, setResponseMolarityData] = useState(null);
@@ -120,15 +121,10 @@ const Titrations = () => {
 
   const renderPHForm = () => {
     const isAcidWithBaseTitration = selectedOption.includes('acid with strong base');
-    const isBaseWithAcidTitration = selectedOption.includes('');
     const isStrongAcidBaseTitration = selectedOption.includes('titrating strong');
   
     return (
-      
       <div className="form-container">
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
         <div className="form-group">
           <label>
             {isAcidWithBaseTitration ? 'Ka' : 'Kb'}:
@@ -153,7 +149,7 @@ const Titrations = () => {
             <div className="form-group">
               <label>
                 Initial molarity of {isAcidWithBaseTitration ? 'acid' : 'base'}:
-                <input type="number" name={isAcidWithBaseTitration?"Ma":"Mb"} value={isAcidWithBaseTitration?formDataPH.Ma:formDataPH.Mb} min="0" onChange={handlePHChange} placeholder={`Enter initial molarity of ${isAcidWithBaseTitration ? 'acid' : 'base'}`} />
+                <input type="number" name={isAcidWithBaseTitration ? "Ma" : "Mb"} value={isAcidWithBaseTitration ? formDataPH.Ma : formDataPH.Mb} min="0" onChange={handlePHChange} placeholder={`Enter initial molarity of ${isAcidWithBaseTitration ? 'acid' : 'base'}`} />
               </label>
             </div>
           </div>
@@ -161,7 +157,7 @@ const Titrations = () => {
             <div className="form-group">
               <label>
                 Molarity of {isAcidWithBaseTitration ? 'base' : 'acid'}:
-                <input type="number" name={isAcidWithBaseTitration?"Mb":"Ma"} value={isAcidWithBaseTitration?formDataPH.Mb:formDataPH.Ma} min="0" onChange={handlePHChange} placeholder={`Enter molarity of ${isAcidWithBaseTitration ? 'base' : 'acid'}`} />
+                <input type="number" name={isAcidWithBaseTitration ? "Mb" : "Ma"} value={isAcidWithBaseTitration ? formDataPH.Mb : formDataPH.Ma} min="0" onChange={handlePHChange} placeholder={`Enter molarity of ${isAcidWithBaseTitration ? 'base' : 'acid'}`} />
               </label>
             </div>
             <div className="form-group">
@@ -176,7 +172,7 @@ const Titrations = () => {
           <h2>Significant Figures</h2>
           <input
             type="number"
-            value={sigFigs}
+            value={formDataPH.sig}
             onChange={handleSigFigsInputChange}
             min="2"
           />
@@ -193,9 +189,6 @@ const Titrations = () => {
   const renderMolarityForm = () => {
     return (
       <div className="form-container">
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
         <div className="form-group">
           <label>
             Select Initial Concentration:
@@ -233,7 +226,7 @@ const Titrations = () => {
           <h2>Significant Figures</h2>
           <input
             type="number"
-            value={sigFigs}
+            value={formDataMolarity.sigfig}
             onChange={handleSigFigsInputChange}
             min="2"
           />
@@ -245,9 +238,6 @@ const Titrations = () => {
 
   return (
     <div>
-      <link rel="preconnect" href="https://fonts.googleapis.com"/>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"/>
       <Navigation />
       <div className="center-header-flex">
         <div className="molarity-button-container">
