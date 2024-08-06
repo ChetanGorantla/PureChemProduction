@@ -21,7 +21,7 @@ const Titrations = () => {
     given:'',
     initial:'',
     final:'',
-    sigfig:'2',
+    sigfig:'6',
   });
   const [responsePHData, setResponsePHData] = useState(null);
   const [responseMolarityData, setResponseMolarityData] = useState(null);
@@ -205,7 +205,7 @@ const Titrations = () => {
         <div className="form-group">
           <label>
             Initial Concentration of {dropdown}:
-            <input type="number" name="given" value={formDataMolarity.given} min="0" onChange={handleMolarityChange} placeholder={`Enter initial volume of ${dropdown}`} />
+            <input type="number" name="given" value={formDataMolarity.given} min="0" onChange={handleMolarityChange} placeholder={`Enter initial concentration of ${dropdown}`} />
           </label>
         </div>
         <div className="form-group">
