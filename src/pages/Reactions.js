@@ -36,7 +36,7 @@ const Reactions = () => {
 
   const balanceEquation = async (equation) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/balance-equation`, { reaction: equation });
+      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/balance-equation`, { reaction: equation });
       
       const unformattedBalancedEquation = response.data.result;
       const formattedBalancedEquation = formatEquation(unformattedBalancedEquation);
@@ -55,7 +55,7 @@ const Reactions = () => {
 
   const splitReaction = async (backendBalancedEq) => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/split-reaction`, { reaction: backendBalancedEq });
+      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/split-reaction`, { reaction: backendBalancedEq });
       setReactantList(cleanUpStates(response.data.reactants));
       setProductList(cleanUpStates(response.data.products));
 
@@ -76,7 +76,7 @@ const Reactions = () => {
     }
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/delta-calculations`, { reaction: backendBalancedEq });
+      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/delta-calculations`, { reaction: backendBalancedEq });
       const { delta_g0, delta_s0, delta_h0, K } = response.data;
       setDeltaG(delta_g0);
       setDeltaS(delta_s0);
@@ -175,7 +175,7 @@ const Reactions = () => {
 
   const handleIceCalculation = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/ice-calculator`, {
+      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/ice-calculator`, {
         reaction: backendBalancedEq,
         RM: reactantValues,
         PM: productValues,
@@ -193,7 +193,7 @@ const Reactions = () => {
 
   const handleBcaCalculation = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/bca-calculator`, {
+      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/bca-calculator`, {
         reaction: backendBalancedEq,
         RM: reactantValues,
         PM: productValues,
@@ -231,7 +231,7 @@ const Reactions = () => {
     setRedoxType(prevType => (prevType === type ? '' : type));
     try {
       const endpoint = type === 'Acid' ? 'acid-redox-equations' : 'base-redox-equations';
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API}/${endpoint}`, { reaction: equation });
+      const response = await axios.post(`https://purechem-263a4a4b5c6d.herokuapp.com/${endpoint}`, { reaction: equation });
       setRedoxResults(response.data);
 
       // Extract the last redox equation and set it for delta calculations
