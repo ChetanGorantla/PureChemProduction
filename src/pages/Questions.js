@@ -1980,7 +1980,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Acid_and_Base_1.png"
+      solutionImage: "/solutions/acid_and_base_1.png"
     },
     {
       questionHeader: "The Ka of NH4+ is 1.80*10^-5. Find the pH of 0.35 M solution of NH4NO3.",
@@ -1994,7 +1994,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Acid_and_Base_2.png"
+      solutionImage: "/solutions/acid_and_base_2.png"
     },
     {
       questionHeader: "Which of the following Bronsted Lowry bases would have the highest Kb value?",
@@ -2008,7 +2008,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Acid_and_Base_3.png"
+      solutionImage: "/solutions/acid_and_base_3.png"
     },
     {
       questionHeader: "Which of the following solutions would have the lowest pH? 1.0 M of NaNO3, 1.0 M of Al(NO3)3, 1.0 M of NaF, 1.0 M of AlF3.",
@@ -2036,7 +2036,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Acid_and_Base_4.png"
+      solutionImage: "/solutions/acid_and_base_4.png"
     },
     {
       questionHeader: "A student deposits 49.3 g of Calcium oxide into 4.0 L of water, and he then measures the pH of the solution. What is the pH of the solution? Assume the volume of the water doesn’t change.",
@@ -2050,7 +2050,7 @@ const Questions = () => {
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
-      solutionImage: "/solutions/Acid_and_Base_5.png"
+      solutionImage: "/solutions/acid_and_base_5.png"
     }
   ],
   "Application of Thermodynamics (Electrochem)": [
