@@ -2104,7 +2104,7 @@ const Questions = () => {
       c: "",
       d: "",
       correctMCQ: "",
-      openAnswer: "",
+      openAnswer: "2900",
       hasSolution: true,
       hasSolutionImage: true,
       solutionText: "",
